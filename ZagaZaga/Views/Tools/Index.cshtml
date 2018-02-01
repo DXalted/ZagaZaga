@@ -1,0 +1,929 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ZAGA ZAGA</title>
+
+    <!--Css Link-->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.10.16/datatables.min.css" />
+    <link rel="stylesheet" href="~/Content/External/assets-1/css/slick.css">
+    <link rel="stylesheet" href="~/Content/External/assets-1/css/slick-theme.css">
+    <link rel="stylesheet" href="~/Content/External/assets-1/css/bootstrap.css">
+    <link rel="stylesheet" href="~/Content/External/assets-1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Content/External/assets-1/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="~/Content/External/assets-1/css/bootstrap-theme.min.css.map">
+    <link rel="stylesheet" href="~/Content/External/assets-1/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+    <link rel="stylesheet" href="~/Content/External/assets-1/css/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/Content/External/assets-1/css/font-awesome/css/font-awesome.css">
+
+
+
+
+    <script src="~/Content/External/assets-1/js/jquery-3.2.1.js"></script>
+
+    <script src="~/Content/External/assets-1/js/bootstrap.js"></script>
+
+
+    <script src="~/Content/External/assets-1/js/npm.js"></script>
+    <script src="~/Content/External/assets-1/js/slick.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.16/datatables.min.js"></script>
+
+
+
+    <script type="text/javascript">
+        $(function () {
+            $(".dropdown").hover(
+                    function () {
+                        $('.dropdown-menu', this).stop(true, true).fadeIn("fast");
+                        $(this).toggleClass('open');
+                        $('b', this).toggleClass("caret caret-up");
+                    },
+                    function () {
+                        $('.dropdown-menu', this).stop(true, true).fadeOut("fast");
+                        $(this).toggleClass('open');
+                        $('b', this).toggleClass("caret caret-up");
+                    });
+        });
+
+
+
+        $(document).ready(function () {
+            $('#RDP_table').DataTable();
+        });
+
+        $(document).ready(function () {
+            $('#Letter_table').DataTable();
+        });
+        $(document).ready(function () {
+            $('#google_table').DataTable();
+        });
+        $(document).ready(function () {
+            $('#mass_table').DataTable();
+        });
+
+        $(document).ready(function () {
+            $('#mass-e_table').DataTable();
+        });
+        $(document).ready(function () {
+            $('#Leads_table').DataTable();
+        });
+        $(document).ready(function () {
+            $('#Send_table').DataTable();
+        });
+
+        $(document).ready(function () {
+            $('#Phone_table').DataTable();
+        });
+        $(document).ready(function () {
+            $('#Check_table').DataTable();
+        });
+
+    </script>
+    <script>
+
+        $('#myTabs a').click(function (e) {
+            e.preventDefault()
+            $(this).tab('show')
+        })
+
+    </script>
+</head>
+
+<body>
+
+    <div class="header">
+        <div class="top">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-md-6 col-sm-6">
+                        <p style="font-size:14px;color:#fff;">WELCOME TO THE <span style="color:#cc997f;font-weight:bold">ZAGA ZAGA</span></p>
+                    </div><!--close col-->
+                    <div class="col-md-6 col-sm-6">
+                        <ul style="color:#fff" class="list-inline pull-right">
+                            <li><a style="background-color:#eeeeee; outline:none; color:#000; font-weight:700" href="/AddMoney/Index" name="add_balance">Add Money</a></li>
+                            <li>Your balance : $@Session["user_amount"]</li>
+                            <li style="border-left:#AFAFAF 1px solid;border-right:#AFAFAF 1px solid;"><i class="fa fa-envelope" aria-hidden="true"></i></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">@Session["user_name"] <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Profile</a></li>
+                                    <li><a href="#">My Stuff</a></li>
+                                    <li><a href="#">My Paypal</a></li>
+                                    @if (Session["user_type"].ToString().ToUpper() == "VIP")
+                                    {
+                                        <li><a href="#">My Bulk</a></li>
+                                    }
+                                    <li class="divider"></li>
+                                    <li><a href="#">Logout</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div><!--close col-->
+                </div><!--close row-->
+            </div><!--close container-->
+        </div><!--close top-->
+        <nav class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <a href="@Url.Action("Index","Home")"><img src="~/Content/External/assets-1/img/logo.png"></a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li><a href="@Url.Action("Index","Home")">Home</a></li>
+                    <li><a href="@Url.Action("Accounts","Home")">Accounts</a></li>
+                    <li><a href="@Url.Action("Index","Tools")" class="active-menu">Tools</a></li>
+                    <li><a data-toggle="modal" data-target="#myModal" href="#">Send Check Next Day Delivery</a></li>
+                    <li><a href="@Url.Action("Index","Format")">Format & Write UPS</a></li>
+                    <li><a href="@Url.Action("Transfers","Home")">Transfers</a></li>
+                    <li><a href="@Url.Action("Index","User_Profile")">User Profile</a></li>
+                    <li><a href="@Url.Action("Support_Dashboard","Support")">Support</a></li>
+                </ul>
+            </div>
+        </nav>
+
+
+        <div class="slider">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12">
+                        <h1 class="b_icon"><i class="fa fa-cogs" aria-hidden="true"></i></h1>
+                    </div><!--close col-->
+                </div><!--close row-->
+
+                <div class="sld-inner">
+                    <div class="row">
+
+                        <div class="col-md-12 col-sm-12">
+                            <div>
+
+                                <!-- Nav tabs -->
+                                <ul class="nav nav-tabs" role="tablist">
+                                    <li role="presentation" class="active">
+                                        <a href="#RDP" aria-controls="RDP" role="tab" data-toggle="tab">
+                                            <label style="background-color:red" class="lab">0</label>
+                                            <span style="padding:5px; padding-right:10px"><i class="fa fa-desktop"></i></span>RDP
+                                        </a>
+                                    </li>
+                                    <li role="presentation">
+                                        <a href="#Letter" aria-controls="Letter" role="tab" data-toggle="tab">
+                                            <label style="background-color:red" class="lab">0</label>
+                                            <span style="padding:5px; padding-right:10px"><i class="fa fa-envelope-o"></i></span>Letter
+                                        </a>
+                                    </li>
+                                    <li role="presentation">
+                                        <a href="#Google" aria-controls="Google" role="tab" data-toggle="tab">
+                                            <label style="background-color:red" class="lab">0</label>
+                                            <span style="padding:5px; padding-right:10px"><i class="fa fa-skype"></i></span>Google Voice
+                                        </a>
+                                    </li>
+                                    <li role="presentation">
+                                        <a href="#Mass" aria-controls="Mass" role="tab" data-toggle="tab">
+                                            <label style="background-color:red" class="lab">0</label>
+                                            <span style="padding:5px; padding-right:10px"><i class="fa fa-file-text-o"></i></span>Mass Text
+                                        </a>
+                                    </li>
+                                    <li role="presentation">
+                                        <a href="#Mass-E" aria-controls="Mass-E" role="tab" data-toggle="tab">
+                                            <label style="background-color:red" class="lab">0</label>
+                                            <span style="padding:5px; padding-right:10px"><i class="fa fa-envelope-o"></i></span>Mass Email
+                                        </a>
+                                    </li>
+                                    <li role="presentation">
+                                        <a href="#Leads" aria-controls="Leads" role="tab" data-toggle="tab">
+                                            <label style="background-color:red" class="lab">0</label>
+                                            <span style="padding:5px; padding-right:10px"><i class="fa fa-envelope-o"></i></span>Leads
+                                        </a>
+                                    </li>
+                                    <li role="presentation">
+                                        <a href="#Send" aria-controls="Send" role="tab" data-toggle="tab">
+                                            <label style="background-color:red" class="lab">0</label>
+                                            <span style="padding:5px; padding-right:10px"><i class="fa fa-check-square-o"></i></span>Send Check
+                                        </a>
+                                    </li>
+                                    <li role="presentation">
+                                        <a href="#Phone" aria-controls="Phone" role="tab" data-toggle="tab">
+                                            <label style="background-color:red" class="lab">0</label>
+                                            <span style="padding:5px; padding-right:10px"><i class="fa fa-phone"></i></span>Phone Number
+                                        </a>
+                                    </li>
+                                    <li role="presentation">
+                                        <a href="#Check" aria-controls="Check" role="tab" data-toggle="tab">
+                                            <label style="background-color:red" class="lab">0</label>
+                                            <span style="padding:5px; padding-right:10px"><i class="fa fa-check"></i></span>Check Sample
+                                        </a>
+                                    </li>
+                                    <li role="presentation">
+                                        <a href="#Check" aria-controls="Check" role="tab" data-toggle="tab">
+                                            <label style="background-color:red" class="lab">0</label>
+                                            <span style="padding:5px; padding-right:10px"><i class="fa fa-check"></i></span>SSN/DOB
+                                        </a>
+                                    </li>
+                                    <li role="presentation">
+                                        <a href="#Check" aria-controls="Check" role="tab" data-toggle="tab">
+                                            <label style="background-color:red" class="lab">0</label>
+                                            <span style="padding:5px; padding-right:10px"><i class="fa fa-check"></i></span>E+P
+                                        </a>
+                                    </li>
+                                </ul>
+
+                                <!-- Tab panes -->
+                                <div class="tab-content">
+
+                                    <div role="tabpanel" class="tab-pane" id="profile">456</div>
+                                    <div role="tabpanel" class="tab-pane" id="messages">789</div>
+                                    <div role="tabpanel" class="tab-pane" id="settings">111</div>
+                                </div>
+
+                            </div>
+                        </div><!--close col-->
+
+
+
+
+                    </div><!--close row-->
+                </div><!--close sld-inner-->
+
+            </div><!--close container-->
+        </div><!--close slider-->
+    </div><!--close header-->
+
+    <div class="section">
+        <div class="sec-2">
+            <div class="container">
+
+                <div class="tab-content">
+
+                    <div role="tabpanel" class="tab-pane active" id="RDP">
+                        <div class="col-md-12 col-sm-12">
+                            <p style="font-size:18px; color:#00385c; font-weight:bold">RDP</p>
+                            <table id="RDP_table" class="display" cellspacing="0" width="100%">
+                                <thead>
+                                    <tr>
+                                        <th>Product Name</th>
+                                        <th>Country</th>
+                                        <th>Info</th>
+                                        <th>Details</th>
+                                        <th>User Name</th>
+                                        <th>Password</th>
+                                        <th>Price</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tfoot>
+                                    <tr>
+                                        <th>Product Name</th>
+                                        <th>Country</th>
+                                        <th>Info</th>
+                                        <th>Details</th>
+                                        <th>User Name</th>
+                                        <th>Password</th>
+                                        <th>Price</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </tfoot>
+                                <tbody>
+                                    @foreach (var item in ViewBag.rdp)
+                                    {
+                                        <tr>
+
+                                            <td>@item.product_name</td>
+                                            <td>@item.country</td>
+                                            <td>@item.info</td>
+                                            <td>@item.details</td>
+                                            <td>@item.username</td>
+                                            <td>@item.pass</td>
+                                            <td>@item.price</td>
+
+
+                                            <td>
+                                                <a class="btn btn-success" data-product-id="@item.id" data-product-category="RDP" onclick="buyItem(this);">BUY</a>
+                                                @*<button type="button" class="btn btn-danger">NO CHECK!</button>*@
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+
+                            </table>
+                        </div>
+                    </div>
+
+
+                    <div role="tabpanel" class="tab-pane " id="Letter">
+                        <div class="col-md-12 col-sm-12">
+                            <p style="font-size:18px; color:#00385c; font-weight:bold">Letter</p>
+                            <table id="Letter_table" class="display" cellspacing="0" width="100%">
+                                <thead>
+                                    <tr>
+                                        <th>Product Name</th>
+                                        <th>Letter</th>
+                                        <th>Price</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tfoot>
+                                    <tr>
+                                        <th>Product Name</th>
+                                        <th>Letter</th>
+                                        <th>Price</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </tfoot>
+                                <tbody>
+                                    @foreach (var item in ViewBag.let)
+                                    {
+                                        <tr>
+                                            <td>@item.product_name</td>
+                                            <td>@item.letter</td>
+                                            <td>@item.price</td>
+                                            <td>
+                                                <a class="btn btn-success" data-product-id="@item.id" data-product-category="LETTER" onclick="buyItem(this);">BUY</a>
+
+                                                @*<button type="button" class="btn btn-danger">NO CHECK!</button>*@
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div role="tabpanel" class="tab-pane " id="Google">
+                        <div class="col-md-12 col-sm-12">
+                            <p style="font-size:18px; color:#00385c; font-weight:bold">Google Voice</p>
+                            <table id="google_table" class="display" cellspacing="0" width="100%">
+                                <thead>
+                                    <tr>
+                                        <th>Product Name</th>
+                                        <th>State</th>
+                                        <th>Phone</th>
+                                        <th>Details</th>
+                                        <th>Email</th>
+                                        <th>Password</th>
+                                        <th>Recovery Email</th>
+                                        <th>Price</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tfoot>
+                                    <tr>
+                                        <th>Product Name</th>
+                                        <th>State</th>
+                                        <th>Phone</th>
+                                        <th>Details</th>
+                                        <th>Email</th>
+                                        <th>Password</th>
+                                        <th>Recovery Email</th>
+                                        <th>Price</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </tfoot>
+                                <tbody>
+                                    @foreach (var item in ViewBag.google)
+                                    {
+                                        <tr>
+                                            <td>@item.product_name</td>
+                                            <td>@item.state</td>
+                                            <td>@item.phone</td>
+                                            <td>@item.details</td>
+                                            <td>@item.email</td>
+                                            <td>@item.pass</td>
+                                            <td>@item.recovery_email</td>
+                                            <td>@item.price</td>
+
+                                            <td>
+                                                <a class="btn btn-success" data-product-id="@item.id" data-product-category="GOOGLE" onclick="buyItem(this);">BUY</a>
+                                                @*<button type="button" class="btn btn-danger">NO CHECK!</button>*@
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div role="tabpanel" class="tab-pane " id="Mass">
+                        <div class="col-md-12 col-sm-12">
+                            <p style="font-size:18px; color:#00385c; font-weight:bold">Mass Text</p>
+                            <table id="mass_table" class="display" cellspacing="0" width="100%">
+                                <thead>
+                                    <tr>
+                                        <th>Product Name</th>
+                                        <th>Country</th>
+                                        <th>Details</th>
+                                        <th>User Name</th>
+                                        <th>Password</th>
+                                        <th>Price</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tfoot>
+                                    <tr>
+                                        <th>Product Name</th>
+                                        <th>Country</th>
+                                        <th>Details</th>
+                                        <th>User Name</th>
+                                        <th>Password</th>
+                                        <th>Price</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </tfoot>
+                                <tbody>
+                                    @foreach (var item in ViewBag.mt)
+                                    {
+                                        <tr>
+                                            <td>@item.product_name</td>
+                                            <td>@item.country</td>
+                                            <td>@item.details</td>
+                                            <td>@item.username</td>
+                                            <td>@item.pass</td>
+                                            <td>@item.price</td>
+
+                                            <td>
+                                                <button type="button" class="btn btn-success">BUY</button>
+                                                <a class="btn btn-success" data-product-id="@item.id" data-product-category="MASSTEXT" onclick="buyItem(this);">BUY</a>
+
+                                                @*<button type="button" class="btn btn-danger">NO CHECK!</button>*@
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+
+                    <div role="tabpanel" class="tab-pane " id="Mass-E">
+                        <div class="col-md-12 col-sm-12">
+                            <p style="font-size:18px; color:#00385c; font-weight:bold">Mass Email</p>
+                            <table id="mass-e_table" class="display" cellspacing="0" width="100%">
+                                <thead>
+                                    <tr>
+                                        <th>Product Name</th>
+                                        <th>Country</th>
+                                        <th>Details</th>
+                                        <th>User Name</th>
+                                        <th>Password</th>
+                                        <th>Price</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tfoot>
+                                    <tr>
+                                        <th>Product Name</th>
+                                        <th>Country</th>
+                                        <th>Details</th>
+                                        <th>User Name</th>
+                                        <th>Password</th>
+                                        <th>Price</th>
+                                        <th>Action</th>
+
+                                    </tr>
+                                </tfoot>
+                                <tbody>
+                                    @foreach (var items in ViewBag.me)
+                                    {
+                                        <tr>
+                                            <td>@items.product_name</td>
+                                            <td>@items.country</td>
+                                            <td>@items.details</td>
+                                            <td>@items.username</td>
+                                            <td>@items.pass</td>
+                                            <td>@items.price</td>
+
+                                            <td>
+                                                <a class="btn btn-success" data-product-id="@items.id" data-product-category="MASSEMAIL" onclick="buyItem(this);">BUY</a>
+                                                @*<button type="button" class="btn btn-danger">NO CHECK!</button>*@
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div role="tabpanel" class="tab-pane " id="Leads">
+                        <div class="col-md-12 col-sm-12">
+                            <p style="font-size:18px; color:#00385c; font-weight:bold">Leads</p>
+                            <table id="Leads_table" class="display" cellspacing="0" width="100%">
+                                <thead>
+                                    <tr>
+                                        <th>Product Name</th>
+                                        <th>Country</th>
+                                        <th>Details</th>
+                                        <th>Write-Ups</th>
+                                        <th>Price</th>
+                                        <th>Action</th>
+
+                                    </tr>
+                                </thead>
+                                <tfoot>
+                                    <tr>
+                                        <th>Product Name</th>
+                                        <th>Country</th>
+                                        <th>Details</th>
+                                        <th>Write-Ups</th>
+                                        <th>Price</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </tfoot>
+                                <tbody>
+                                    @foreach (var items in ViewBag.lead)
+                                    {
+
+                                        <tr>
+                                            <td>@items.product_name</td>
+                                            <td>@items.country</td>
+                                            <td>@items.details</td>
+                                            <td>@items.write_ups</td>
+                                            <td>@items.price</td>
+
+                                            <td>
+
+                                                <a class="btn btn-success" data-product-id="@items.id" data-product-category="LEADS" onclick="buyItem(this);">BUY</a>
+                                                @*<button type="button" class="btn btn-danger">NO CHECK!</button>*@
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div role="tabpanel" class="tab-pane " id="Send">
+                        <div class="col-md-12 col-sm-12">
+                            <p style="font-size:18px; color:#00385c; font-weight:bold">Send Check</p>
+                            <table id="Send_table" class="display" cellspacing="0" width="100%">
+                                <thead>
+                                    <tr>
+                                        <th>Client Name</th>
+                                        <th>Address</th>
+                                        <th>City</th>
+                                        <th>State</th>
+                                        <th>Zip-Code</th>
+                                        <th>Amount</th>
+                                        <th>Price</th>
+                                        <th>Action</th>
+
+                                    </tr>
+                                </thead>
+                                <tfoot>
+                                    <tr>
+                                        <th>Client Name</th>
+                                        <th>Address</th>
+                                        <th>City</th>
+                                        <th>State</th>
+                                        <th>Zip-Code</th>
+                                        <th>Amount</th>
+                                        <th>Price</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </tfoot>
+                                <tbody>
+                                    @foreach (var items in ViewBag.sc)
+                                    {
+                                        <tr>
+                                            <td>@items.client_name</td>
+                                            <td>@items.address</td>
+                                            <td>@items.city</td>
+                                            <td>@items.state</td>
+                                            <td>@items.zip_code</td>
+                                            <td>@items.amount</td>
+                                            <td>@items.price</td>
+
+                                            <td>
+
+                                                <a class="btn btn-success" data-product-id="@items.id" data-product-category="SendCheck" onclick="buyItem(this);">BUY</a>
+                                                @*<button type="button" class="btn btn-danger">NO CHECK!</button>*@
+                                            </td>
+                                        </tr>
+                                    }
+
+
+
+
+
+
+
+
+
+
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+
+                    <div role="tabpanel" class="tab-pane " id="Phone">
+                        <div class="col-md-12 col-sm-12">
+                            <p style="font-size:18px; color:#00385c; font-weight:bold">Phone Number</p>
+                            <table id="Phone_table" class="display" cellspacing="0" width="100%">
+                                <thead>
+                                    <tr>
+                                        <th>Product Name</th>
+                                        <th>Country</th>
+                                        <th>State</th>
+                                        <th>Info</th>
+                                        <th>Link</th>
+                                        <th>Price</th>
+                                        <th>Action</th>
+
+                                    </tr>
+                                </thead>
+                                <tfoot>
+                                    <tr>
+                                        <th>Product Name</th>
+                                        <th>Country</th>
+                                        <th>State</th>
+                                        <th>Info</th>
+                                        <th>Link</th>
+                                        <th>Price</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </tfoot>
+                                <tbody>
+                                    @foreach (var items in ViewBag.phone)
+                                    {
+                                        <tr>
+                                            <td>@items.product_name</td>
+                                            <td>@items.country</td>
+                                            <td>@items.state</td>
+                                            <td>@items.info</td>
+                                            <td>@items.link</td>
+                                            <td>@items.price</td>
+
+                                            <td>
+                                                <a class="btn btn-success" data-product-id="@items.id" data-product-category="PhoneNumber" onclick="buyItem(this);">BUY</a>
+                                                @*<button type="button" class="btn btn-danger">NO CHECK!</button>*@
+                                            </td>
+                                        </tr>
+                                    }
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div role="tabpanel" class="tab-pane " id="Check">
+                        <div class="col-md-12 col-sm-12">
+                            <p style="font-size:18px; color:#00385c; font-weight:bold">Check Sample</p>
+                            <table id="Check_table" class="display" cellspacing="0" width="100%">
+                                <thead>
+                                    <tr>
+                                        <th>Product Name</th>
+                                        <th>Bank Name</th>
+                                        <th>Name</th>
+                                        <th>Country</th>
+                                        <th>State</th>
+                                        <th>Info</th>
+                                        <th>Price</th>
+                                        <th>Action</th>
+
+                                    </tr>
+                                </thead>
+                                <tfoot>
+                                    <tr>
+                                        <th>Product Name</th>
+                                        <th>Bank Name</th>
+                                        <th>Name</th>
+                                        <th>Country</th>
+                                        <th>State</th>
+                                        <th>Info</th>
+                                        <th>Price</th>
+                                        <th>Action</th>
+
+                                    </tr>
+                                </tfoot>
+                                <tbody>
+                                    @foreach (var items in ViewBag.cs)
+                                    {
+                                        <tr>
+                                            <td>@items.product_name</td>
+                                            <td>@items.bank_name</td>
+                                            <td>@items.name</td>
+                                            <td>@items.country</td>
+                                            <td>@items.state</td>
+                                            <td>@items.info</td>
+                                            <td>@items.price</td>
+
+                                            <td>
+
+                                                <a class="btn btn-success" data-product-id="@items.id" data-product-category="CheckSample" onclick="buyItem(this);">BUY</a>
+                                                @*<button type="button" class="btn btn-danger">NO CHECK!</button>*@
+                                            </td>
+                                        </tr>
+                                    }
+
+
+
+
+
+
+
+
+
+
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <div class="footer">
+
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+
+                <div class="foot">
+                    <p style="font-size:18.62px;color:#FFFFFF;text-align:center;font-weight:bold">Connect with us</p>
+
+                    <div class="social-icon">
+                        <i class="fa fa-facebook-square" aria-hidden="true"></i>
+                        <i class="fa fa-twitter-square" aria-hidden="true"></i>
+                        <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+                        <i class="fa fa-google-plus-square" aria-hidden="true"></i>
+                    </div>
+                </div>
+
+                <div class="foot-end">
+                    <p style="font-size:14px;color:#a8a8a8;text-align:center;font-weight:bold">Copyright © 2018 ZAGA ZAGA. All rights Reserved.</p>
+                </div>
+
+
+
+            </div>
+        </div>
+
+    </div><!--close footer-->
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Please Select</h4>
+                </div>
+                <div class="modal-body">
+                    <a href="@Url.Action("personal_chk","Snd_Check")"><input type="submit" style="width:100%; height:50px; background-color: #00385c; color: #fff; outline: none" value="Personal Check" /></a>
+                    <a href="@Url.Action("company_chk","Snd_Check")"><input type="submit" style="width:100%; height:50px; background-color: #00385c; color: #fff; margin-top:10px; outline: none" value="Company Check" /></a>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    @*<button id="btn_b">add</button>
+        <div id="result">
+            @Url.Action("bank_account", "Tools")
+
+        </div>*@
+
+    <div id="SuccessModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Success</h4>
+                </div>
+                <div class="modal-body">
+                    <p>You Have Successfully Buy This Item.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="CostModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Warning</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Oops! It's look like you have insufficiant balance.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
+@*<script>
+        $(document).ready(function () {
+            $('#btn_b').click(function () {
+                $("#result").load("@Url.Action("bank_account","Tools")", function () {
+                    console.log($("Bank_table_2"));
+                    $('#result #Bank_table_2').addClass('jawwad');
+                    $('#result #Bank_table_2').DataTable();
+
+                });
+            })
+        })
+    </script>*@
+
+<script>
+    function buyItem(e) {
+        var $me = $(e);
+
+        var Data = { "ProductID": $me.data("product-id"), "ProductCategory": $me.data("product-category") };
+        runAjax("/Tools/BuyItem", Data, true, $me, "button", afterBuyItem, $(e));
+
+    }
+
+    function afterBuyItem(data, e) {
+        var $me = $(e);
+        if (data["UserID"] == "0") {
+            $("#CostModal").modal();
+
+        } else {
+            $("#SuccessModal").modal();
+
+        }
+        console.log(data);
+    }
+
+    function runAjax(actionName, data, loading, loadingDestination, loadingType, afterCallMethod, requestBy) {
+        var $me = $(requestBy);
+        $.ajax({
+            type: "POST",
+            url: actionName,
+            data: JSON.stringify(data),
+            contentType: "application/json; charset=utf-8",
+            beforeSend: function () { if (loading) showHideLoading(loadingDestination, true, loadingType); },
+            complete: function () { if (loading) showHideLoading(loadingDestination, false, loadingType); },
+            dataType: "json",
+            success: function (response) { if (afterCallMethod != "") afterCallMethod(response, $me); },
+            error: function (xhr) { console.log(xhr.responseText); }
+        });
+    }
+
+    function showHideLoading(e, action, type) {
+        var $me = $(e);
+        if ((action) && ($me.find(".modal-backdrop.in.load").length > 0)) return;
+        if (type == "button") {
+            if (action) $me.button("loading");
+            else $me.button("reset");
+        } else if (type == "full") {
+            if (action) {
+                //$me.append('<div class="modal-backdrop in load" style="display:none;"><i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i></div>');
+                $me.append('<div class="modal-backdrop in load" style="display:none;"><img src="/assets/images/loading.gif" /></div>');
+                $me.find(".modal-backdrop.in.load").fadeIn(100);
+                //$me.find("div:first").addClass("blurry");
+            } else {
+                //$me.find("div:first").removeClass("blurry");
+                $me.find(".modal-backdrop.in.load").fadeOut(100, function () { $(this).remove(); });
+            }
+        } else return;
+    }
+</script>

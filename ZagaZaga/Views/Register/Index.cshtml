@@ -1,0 +1,134 @@
+﻿@model ZagaZaga.Models.user
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Css Link-->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.10.16/datatables.min.css" />
+    <link rel="stylesheet" href="~/Content/External/assets-1/css/slick.css">
+    <link rel="stylesheet" href="~/Content/External/assets-1/css/slick-theme.css">
+    <link rel="stylesheet" href="~/Content/External/assets-1/css/bootstrap.css">
+    <link rel="stylesheet" href="~/Content/External/assets-1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Content/External/assets-1/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="~/Content/External/assets-1/css/bootstrap-theme.min.css.map">
+    <link rel="stylesheet" href="~/Content/External/assets-1/css/style-2.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+    <link rel="stylesheet" href="~/Content/External/assets-1/css/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/Content/External/assets-1/css/font-awesome/css/font-awesome.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Passion+One" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet" type="text/css">
+
+    <title>Zaka Zaka | Register</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row main">
+            <div class="panel-heading">
+                <!-- <div class="panel-title text-center">
+                      <h1 class="title">Company Name</h1>
+                      <hr />
+                  </div>-->
+            </div>
+            <div class="main-login main-center">
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+                <form class="form-horizontal" method="post" action="#">
+                    <h1 class="text-center" style="font-weight: bold">Register</h1>
+                    @{  string date = DateTime.Now.ToString("yyyy-MM-dd");  }
+                    
+                    <input type="text" name="type" hidden value="normal" />
+                    <input type="text" name="date" hidden value="@date" />
+
+                    <div class="form-group">
+                        <label for="username" class="cols-sm-2 control-label">Username</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
+                                
+                                @Html.TextBoxFor(model => model.username, null, new { @class = "form-control" })
+                                  
+                                @Html.ValidationMessageFor(model => model.username)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password" class="cols-sm-2 control-label">Password</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                                @Html.TextBoxFor(model => model.userpass, null, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.userpass)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="confirm" class="cols-sm-2 control-label">Confirm Password</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                                @Html.TextBoxFor(model => model.confpass, null, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.confpass)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email" class="cols-sm-2 control-label">Your Email</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                                @Html.TextBoxFor(model => model.email, null, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.email)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name" class="cols-sm-2 control-label">ICQ/YIM</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-comment fa" aria-hidden="true"></i></span>
+                                @Html.TextBoxFor(model => model.icq_yim, null, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.icq_yim)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group ">
+                        <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Register</button>
+                    </div>
+                    <div class="login-register">
+                        @Html.ActionLink("Already Register? Login", "Index","User_Login")
+                    </div>
+                </form>
+}
+            </div>
+        </div>
+    </div>
+    @if(ViewBag.Message!=null){
+        <script type="text/javascript">
+            window.onload = function () {
+                alert("@ViewBag.Message");
+            }
+        </script>
+        
+    }
+
+    <script type="text/javascript" src="~/Content/External/assets-1/js/bootstrap.js"></script>
+</body>
+</html>
+    
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

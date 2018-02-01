@@ -1,0 +1,213 @@
+﻿@charset "utf-8";
+/* CSS Document */
+body{
+	font-family: 'Open Sans', sans-serif;
+	}
+.header{
+	width:100%;
+	min-height:150px;
+	background-color:#00385c;
+    background:url(../img/bg.jpg) center no-repeat;
+    background-size: 100%
+	}
+.top{
+	width:100%;
+	height:45px;
+	background-color:#00385c;
+	padding:15px;
+	}
+.slider{
+	width:100%;
+	min-height:343px;
+	background-color:#000000;
+	background:url(../img/bg.jpg) center no-repeat;
+    background-size: 100%;
+	}
+.sld-inner{
+	width:100%;
+	min-height:80px;
+	background-color:#FFFFFF;
+	margin-top:13px;
+   
+	}
+
+.sec-1{
+	padding:20px;
+	border-bottom:#CFCFCF solid 1px;
+	background-color:#f4f4f4;
+	}
+.sec-2{
+	padding:30px;
+	border-bottom:#CFCFCF solid 1px;
+	background-color:#f4f4f4;
+	}
+.sec-3{
+	padding:20px;
+	border-bottom:#CFCFCF solid 1px;
+	background-color:#fff;
+	}
+.sec-4{
+	padding:20px;
+	border-bottom:#CFCFCF solid 1px;
+	background-color:#fff;
+	}
+.slk-sld{
+	padding:10px;
+	}
+.slick-prev:before, .slick-next:before {
+    font-family: 'slick';
+    font-size: 20px;
+    line-height: 1;
+    opacity: .75;
+    color: #000;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.slick-prev.slick-disabled:before, .slick-next.slick-disabled:before {
+    opacity: 7.25;
+}
+.slick-prev:before {
+    content: '\f104';
+	font-family:FontAwesome;
+}
+.slick-next:before {
+    content: '\f105';
+	font-family:FontAwesome;
+}
+.box-1{
+	border:#CFCFCF solid 1px;
+	padding:10px;
+	}
+.foot{
+	width:100%;
+	height:227px;
+	background-color:#00385c;
+	padding:60px;
+	text-align:center;
+	
+	}
+.social-icon{
+	display:inline-block;
+	color:#fff;
+	text-align:center;
+	font-size:30px;
+	}
+.foot-end{
+	width:100%;
+	height:72px;
+	background-color:#fff;
+	padding:60px;
+	text-align:center;
+	}
+.navbar-nav {
+    float: left;
+    margin: 0;
+    padding: 20px;
+}
+.navbar-default .navbar-nav>li>a:hover {
+    color: #fcfcfc;
+    background-color: #00385c;
+    font-weight: 600;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+.navbar-default .navbar-nav>li>a {
+    color: #00385c;
+}
+.media-middle {
+    vertical-align: inherit;
+}
+.navbar-default {
+    background-color: #f8f8f8;
+    border-bottom: 2px solid #ca987e;
+}
+.caret-up {
+    width: 0; 
+    height: 0; 
+    border-left: 4px solid rgba(0, 0, 0, 0);
+    border-right: 4px solid rgba(0, 0, 0, 0);
+    border-bottom: 4px solid;
+    
+    display: inline-block;
+    margin-left: 2px;
+    vertical-align: middle;
+}
+.dropdown-menu{
+    margin: 10px 0 0;
+}
+a.dropdown-toggle{
+    color: #fff;
+    text-decoration: none;
+}
+a:focus{
+    outline:none;
+}
+.navbar-nav{
+    font-weight:700;
+}
+
+nav.navbar-default.navbar-side {
+    height: 88%;
+    overflow-y: auto;
+}
+.sld-inner .nav-tabs>li>a .lab {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: #000;
+    padding: 2px 7px;
+    color: #fff;
+    border-radius:7px;
+    box-shadow: 2px 1px 4px #000;
+}
+.sld-inner .nav-tabs>li>a {
+    width: 130px;
+    text-align-last: center;
+    font-size: 11px;
+    border: 1px solid #00385c !important;
+    margin: 5px 4px;
+    color: #00385c !important;
+    border-radius: 7px;
+}
+.sld-inner .nav-tabs>li>a:hover , .sld-inner .nav-tabs>li.active >a {
+    color: #fff !important;
+    background: #00385c;
+    border-color: #00385c !important;
+}
+.sld-inner .nav-tabs>li>a span {
+    display: block;
+    margin: auto;
+    line-height: 0px;
+    width: 80px;
+    text-align: center;
+    font-size: 30px;
+}
+
+.sld-inner .nav-tabs>li>a span i {
+    line-height: 25px;
+}
+
+.sld-inner .nav-tabs>li {
+    display: inline-block !important;
+    float: none;
+}
+
+.sld-inner .nav-tabs {
+    text-align: center;
+}
+
+.active-menu{
+    color:#fff !important;
+    background-color: #00385c;
+    font-weight: 600;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+.b_icon{
+    font-size:130px; 
+    color:#cc997f;
+    font-weight:bold; 
+    text-align:center;
+    position:relative;
+    top:-50px;
+}

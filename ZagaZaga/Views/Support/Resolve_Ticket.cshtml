@@ -1,0 +1,160 @@
+﻿@{
+    ViewBag.Title = "Resolve_Ticket";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Zaga Zaga Support</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="shortcut icon" href="favicon_16.ico" />
+    <link rel="bookmark" href="favicon_16.ico" />
+    <!-- site css -->
+    <link rel="stylesheet" href="~/Content/External/assets-3/css/site.min.css">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,800,700,400italic,600italic,700italic,800italic,300italic" rel="stylesheet" type="text/css">
+    <!-- <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'> -->
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <script src="~/Content/External/assets-1/js/jquery-3.2.1.js"></script>
+
+    <script src="~/Content/External/assets-1/js/bootstrap.js"></script>
+    <script type="text/javascript" src="~/Content/External/assets-3/js/site.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.16/datatables.min.js"></script>
+</head>
+<body>
+    <!--nav-->
+    <nav role="navigation" class="navbar navbar-custom">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button data-target="#bs-content-row-navbar-collapse-5" data-toggle="collapse" class="navbar-toggle" type="button">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="@Url.Action("Support_Dashboard","Support")" class="navbar-brand" style="color:#fff; font-weight:bold">ZAGA ZAGA</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div id="bs-content-row-navbar-collapse-5" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active"><a href="@Url.Action("Index","Home")">Home</a></li>
+                    <li class="active"><a href="#" data-toggle="modal" data-target="#ticmdl">New Ticket</a></li>
+                    <!-- <li class="disabled"><a href="#">Link</a></li> -->
+                </ul>
+
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    <!--header-->
+    <div class="container-fluid">
+        <!--documents-->
+        <div class="row row-offcanvas row-offcanvas-left">
+            <div class="col-xs-6 col-sm-3 sidebar-offcanvas" role="navigation">
+                <ul class="list-group panel">
+                    <li class="list-group-item"><a href="@Url.Action("Support_Dashboard","Support")"><i class="glyphicon glyphicon-list-alt"></i>All Tickets</a></li>
+                    <li class="list-group-item"><a href="@Url.Action("Resolve_Ticket","Support")"><i class="glyphicon glyphicon-list-alt"></i>Resolved Tickets</a></li>
+                    <li class="list-group-item"><a href="@Url.Action("Open_Ticket","Support")"><i class="glyphicon glyphicon-list-alt"></i>Open Tickets</a></li>
+
+                </ul>
+            </div>
+            <div class="col-xs-12 col-sm-9 content">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><a href="javascript:void(0);" class="toggle-sidebar"><span class="fa fa-angle-double-left" data-toggle="offcanvas" title="Maximize Panel"></span></a>Resolved Tickets</h3>
+                    </div>
+                    <div class="panel-body">
+
+                        <div class="tab-content">
+
+                            <div role="tabpanel" class="tab-pane active" id="RDP">
+                                <div class="col-md-12 col-sm-12">
+
+                                    <table id="res_tic" class="display" cellspacing="0" width="100%">
+                                        <thead>
+                                            <tr>
+                                                <th>Ticket Title</th>
+                                                <th>Time</th>
+                                                
+
+                                            </tr>
+                                        </thead>
+                                        <tfoot>
+                                            <tr>
+                                                <th>Ticket Title</th>
+                                                <th>Time</th>
+
+                                            </tr>
+                                        </tfoot>
+                                        <tbody>
+@foreach (var item in ViewBag.res_tic)
+{
+                                            <tr>
+
+                                                <td>@item.title</td>
+                                                <td>@item.date</td>
+                                                
+                                            </tr>
+}
+                                        </tbody>
+
+                                    </table>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div><!-- panel body -->
+                </div>
+            </div><!-- content -->
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="ticmdl" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">New Ticket</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <label>Title</label>
+                        <input type="text" name="title" class="form-control" /><br />
+
+                        <label>Report</label>
+                        <select name="report" class="form-control">
+                            <option>General Support</option>
+                            <option>Report a Tool</option>
+                            <option>Sales</option>
+                        </select><br />
+
+                        <label>Description</label>
+                        <textarea class="form-control" name="des" cols="50" rows="5"></textarea><br />
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <input type="submit" style="width:100%; height:50px; background-color: #00385c; color: #fff; outline: none" value="Submit" /></a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+</body>
+</html>
+<script>
+    $(document).ready(function () {
+        $('#res_tic').DataTable();
+    });
+</script>

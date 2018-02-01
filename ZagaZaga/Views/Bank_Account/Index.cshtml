@@ -1,0 +1,326 @@
+﻿@model ZagaZaga.Models.bank_account
+
+@{
+    ViewBag.Title = "Index";
+}
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ZAGA ZAGA | Admin Panel</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="~/Content/External/assets-2/materialize/css/materialize.min.css" media="screen,projection" />
+    <!-- Bootstrap Styles-->
+    <link href="~/Content/External/assets-2/css/bootstrap.css" rel="stylesheet" />
+    <!-- FontAwesome Styles-->
+    <link href="~/Content/External/assets-2/css/font-awesome.css" rel="stylesheet" />
+    <!-- Morris Chart Styles-->
+    <link href="~/Content/External/assets-2/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
+    <!-- Custom Styles-->
+    <link href="~/Content/External/assets-2/css/custom-styles.css" rel="stylesheet" />
+    <!-- Google Fonts-->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="~/Content/External/assets-2/js/Lightweight-Chart/cssCharts.css">
+</head>
+
+<body>
+    <div id="wrapper">
+        <nav class="navbar navbar-default top-navbar" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle waves-effect waves-dark" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand waves-effect waves-dark" href="index.html"><strong>ZAGA ZAGA</strong></a>
+
+                <div id="sideNav" href=""><i class="material-icons dp48">toc</i></div>
+            </div>
+
+            <ul class="nav navbar-top-links navbar-right">
+
+                <li><a class="dropdown-button waves-effect waves-dark" href="#!" data-activates="dropdown1"><i class="fa fa-user fa-fw"></i> <b>Aliya</b> <i class="material-icons right">arrow_drop_down</i></a></li>
+            </ul>
+        </nav>
+        <li>
+            <a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+        </li>
+
+
+
+        <!--/. NAV TOP  -->
+        <!--/. NAV TOP  -->
+        <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+
+                    <li>
+                        <a class="active-menu waves-effect waves-dark" href="@Url.Action("Index","Admin_Dashboard")"><i class="fa fa-dashboard"></i> Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="#" class="waves-effect waves-dark"><i class="fa fa-edit"></i> Accounts<span class="fa arrow"> </span></a>
+                        <ul class="nav nav-second-level">
+
+                            <li>
+                                <a href="@Url.Action("Index","Bank_Account")" class="waves-effect waves-dark"><i class="fa fa-edit"></i> Bank Account </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Index","Shipping_Account")" class="waves-effect waves-dark"><i class="fa fa-edit"></i> Shipping Account </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Index","Dating_Site")" class="waves-effect waves-dark"><i class="fa fa-edit"></i> Dating Site</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Index", "Craiglist")" class="waves-effect waves-dark"><i class="fa fa-edit"></i> Craiglist</a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+
+                    <li>
+                        <a href="#" class="waves-effect waves-dark"><i class="fa fa-edit"></i> Tools<span class="fa arrow"> </span></a>
+                        <ul class="nav nav-second-level">
+
+                            <li>
+                                <a href="@Url.Action("Index","RDP")" class="waves-effect waves-dark"><i class="fa fa-edit"></i> RDP </a>
+                            </li>
+
+                            <li>
+                                <a href="@Url.Action("Index","Letter")" class="waves-effect waves-dark"><i class="fa fa-edit"></i> Letter</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Index","Google_Voice")" class="waves-effect waves-dark"><i class="fa fa-edit"></i> Google Voice</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Index","Mass_Text")" class="waves-effect waves-dark"><i class="fa fa-edit"></i> Mass Text</a>
+                            </li>
+
+                            <li>
+                                <a href="@Url.Action("Index", "Mass_Email")" class="waves-effect waves-dark"><i class="fa fa-edit"></i> Mass Email </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Index", "Leads")" class="waves-effect waves-dark"><i class="fa fa-edit"></i> Leads </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Index", "Send_Check")" class="waves-effect waves-dark"><i class="fa fa-edit"></i> Send Check</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Index", "Phone_Number")" class="waves-effect waves-dark"><i class="fa fa-edit"></i> Phone Number</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Index", "Check_Sample")" class="waves-effect waves-dark"><i class="fa fa-edit"></i> Check Sample</a>
+                            </li>
+                        </ul>
+                    </li>
+
+
+                    <li>
+                        <a href="#" class="waves-effect waves-dark"><i class="fa fa-edit"></i> Transfers<span class="fa arrow"> </span></a>
+                        <ul class="nav nav-second-level">
+
+                            <li>
+                                <a href="@Url.Action("Index", "Bank_Transfer")" class="waves-effect waves-dark"><i class="fa fa-edit"></i> Bank Transfer</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Index", "Credit_Card")" class="waves-effect waves-dark"><i class="fa fa-edit"></i> Credit Card</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Index", "Paypal_Transfer")" class="waves-effect waves-dark"><i class="fa fa-edit"></i> Paypal Transfer</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="#" class="waves-effect waves-dark"><i class="fa fa-edit"></i> Send Check Delievery<span class="fa arrow"> </span></a>
+                        <ul class="nav nav-second-level">
+
+                            <li>
+                                <a href="@Url.Action("P_Check", "Admin_Dashboard")" class="waves-effect waves-dark"><i class="fa fa-edit"></i> Personal Check</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("C_Check", "Admin_Dashboard")" class="waves-effect waves-dark"><i class="fa fa-edit"></i> Company Check</a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+
+
+
+
+                    <li>
+                        <a href="@Url.Action("Index", "News")" class="waves-effect waves-dark"><i class="fa fa-edit"></i> News</a>
+                    </li>
+
+
+
+                    <li>
+                        <a href="#" class="waves-effect waves-dark"><i class="fa fa-edit"></i> View Suggestions</a>
+                    </li>
+                    <li>
+                        <a href="#" class="waves-effect waves-dark"><i class="fa fa-edit"></i> View Queries</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index", "Tickets")" class="waves-effect waves-dark"><i class="fa fa-edit"></i> View Tickets</a>
+                    </li>
+<li>
+                        <a href="#" class="waves-effect waves-dark"><i class="fa fa-edit"></i> Bulk</a>
+                    </li>
+
+                </ul>
+            </div>
+
+        </nav>
+        <!-- /. NAV SIDE  -->
+        <div id="page-wrapper">
+            <div class="header">
+                <h1 class="page-header">
+                    Bank Account
+                </h1>
+                <ol class="breadcrumb">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#"> Bank Account</a></li>
+                    <li class="active">Data</li>
+                </ol>
+
+            </div>
+
+            <div id="page-inner">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-content">
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+                                <form class="col s12">
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            @Html.EditorFor(model => model.bank_name)
+                                            @Html.ValidationMessageFor(model => model.bank_name)
+                                            <label for="bank_name">Bank Name</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            @Html.EditorFor(model => model.country)
+                                            @Html.ValidationMessageFor(model => model.country)
+                                            <label for="country">Country</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            @Html.EditorFor(model => model.username)
+                                            @Html.ValidationMessageFor(model => model.username)
+                                            <label for="uname">User Name</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            @Html.EditorFor(model => model.userpass)
+                                            @Html.ValidationMessageFor(model => model.userpass)
+                                            <label for="upass">User Pass</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            @Html.EditorFor(model => model.email)
+                                            @Html.ValidationMessageFor(model => model.email)
+                                            <label for="email">Email</label>
+                                        </div>
+                                    </div><div class="row">
+                                        <div class="input-field col s12">
+                                            @Html.EditorFor(model => model.pass)
+                                            @Html.ValidationMessageFor(model => model.pass)
+                                            <label for="pass">Password</label>
+                                        </div>
+                                    </div><div class="row">
+                                        <div class="input-field col s12">
+                                            @Html.EditorFor(model => model.balance)
+                                            @Html.ValidationMessageFor(model => model.balance)
+                                            <label for="balance">Balance</label>
+                                        </div>
+                                    </div><div class="row">
+                                        <div class="input-field col s12">
+                                            @Html.EditorFor(model => model.account_number)
+                                            @Html.ValidationMessageFor(model => model.account_number)
+                                            <label for="acc_num">Account Number</label>
+                                        </div>
+                                    </div><div class="row">
+                                        <div class="input-field col s12">
+                                            @Html.EditorFor(model => model.routine_number)
+                                            @Html.ValidationMessageFor(model => model.routine_number)
+                                            <label for="rtn_num">Routine Number</label>
+                                            
+                                        </div>
+                                    </div><div class="row">
+                                        <div class="input-field col s12">
+                                            @Html.EditorFor(model => model.price)
+                                            @Html.ValidationMessageFor(model => model.price)
+                                            <label for="price">Price</label>
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input type="submit" class="btn btn-info" name="submit">
+                                        </div>
+                                    </div>
+                                </form>
+
+}
+                                <div class="clearBoth"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- /.col-lg-12 -->
+
+                <footer>
+                   
+
+
+                </footer>
+            </div>
+            <!-- /. PAGE INNER  -->
+        </div>
+        <!-- /. PAGE WRAPPER  -->
+    </div>
+    <!-- /. WRAPPER  -->
+    <!-- JS Scripts-->
+    <!-- jQuery Js -->
+    <script src="~/Content/External/assets-2/js/jquery-1.10.2.js"></script>
+
+    <!-- Bootstrap Js -->
+    <script src="~/Content/External/assets-2/js/bootstrap.min.js"></script>
+
+    <script src="~/Content/External/assets-2/materialize/js/materialize.min.js"></script>
+
+    <!-- Metis Menu Js -->
+    <script src="~/Content/External/assets-2/js/jquery.metisMenu.js"></script>
+    <!-- Morris Chart Js -->
+    <script src="~/Content/External/assets-2/js/morris/raphael-2.1.0.min.js"></script>
+    <script src="~/Content/External/assets-2/js/morris/morris.js"></script>
+
+    @*<script src="~/Content/External/assets-2/js/easypiechart.js"></script>
+        <script src="~/Content/External/assets-2/js/easypiechart-data.js"></script>*@
+
+    <script src="~/Content/External/assets-2/js/Lightweight-Chart/jquery.chart.js"></script>
+
+    <!-- Custom Js -->
+    <script src="~/Content/External/assets-2/js/custom-scripts.js"></script>
+
+
+</body>
+
+</html>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

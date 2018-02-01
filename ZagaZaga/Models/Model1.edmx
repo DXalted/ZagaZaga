@@ -1,0 +1,1279 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="mvcModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="admin">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="nvarchar" MaxLength="250" />
+          <Property Name="Password" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="amount">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="u_id" Type="nvarchar" MaxLength="250" />
+          <Property Name="amount" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="bank_account">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="bank_name" Type="nvarchar" MaxLength="250" />
+          <Property Name="country" Type="nvarchar" MaxLength="250" />
+          <Property Name="username" Type="nvarchar" MaxLength="250" />
+          <Property Name="userpass" Type="nvarchar" MaxLength="250" />
+          <Property Name="email" Type="nvarchar" MaxLength="250" />
+          <Property Name="pass" Type="nvarchar" MaxLength="250" />
+          <Property Name="balance" Type="nvarchar" MaxLength="250" />
+          <Property Name="account_number" Type="nvarchar" MaxLength="250" />
+          <Property Name="routine_number" Type="nvarchar" MaxLength="250" />
+          <Property Name="price" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="bank_transfer">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="bank_name" Type="nvarchar" MaxLength="250" />
+          <Property Name="account_number" Type="nvarchar" MaxLength="250" />
+          <Property Name="routine_number" Type="nvarchar" MaxLength="250" />
+          <Property Name="account_holder" Type="nvarchar" MaxLength="250" />
+          <Property Name="username" Type="nvarchar" MaxLength="250" />
+          <Property Name="userpass" Type="nvarchar" MaxLength="250" />
+          <Property Name="security_qa" Type="nvarchar" MaxLength="250" />
+          <Property Name="email" Type="nvarchar" MaxLength="250" />
+          <Property Name="pass" Type="nvarchar" MaxLength="250" />
+          <Property Name="amount" Type="nvarchar" MaxLength="250" />
+          <Property Name="price" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="buy">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="u_name" Type="nvarchar" MaxLength="250" />
+          <Property Name="email" Type="nvarchar" MaxLength="250" />
+          <Property Name="p_id" Type="nvarchar" MaxLength="250" />
+          <Property Name="p_name" Type="nvarchar" MaxLength="250" />
+          <Property Name="info" Type="nvarchar" MaxLength="250" />
+          <Property Name="login" Type="nvarchar" MaxLength="250" />
+          <Property Name="pass" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="check_sample">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="product_name" Type="nvarchar" MaxLength="250" />
+          <Property Name="bank_name" Type="nvarchar" MaxLength="250" />
+          <Property Name="name" Type="nvarchar" MaxLength="250" />
+          <Property Name="country" Type="nvarchar" MaxLength="250" />
+          <Property Name="state" Type="nvarchar" MaxLength="250" />
+          <Property Name="info" Type="nvarchar" MaxLength="250" />
+          <Property Name="price" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="company_chk">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="company_check" Type="nvarchar" MaxLength="250" />
+          <Property Name="amount" Type="nvarchar" MaxLength="250" />
+          <Property Name="price" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="contact">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="u_name" Type="nvarchar" MaxLength="250" />
+          <Property Name="u_email" Type="nvarchar" MaxLength="250" />
+          <Property Name="subject" Type="nvarchar" MaxLength="250" />
+          <Property Name="message" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="craigslist">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="product_name" Type="nvarchar" MaxLength="250" />
+          <Property Name="country" Type="nvarchar" MaxLength="250" />
+          <Property Name="details" Type="text" />
+          <Property Name="status" Type="nvarchar" MaxLength="250" />
+          <Property Name="username" Type="nvarchar" MaxLength="250" />
+          <Property Name="userpass" Type="nvarchar" MaxLength="250" />
+          <Property Name="email" Type="nvarchar" MaxLength="250" />
+          <Property Name="pass" Type="nvarchar" MaxLength="250" />
+          <Property Name="price" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="credit_card">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="holder_name" Type="nvarchar" MaxLength="250" />
+          <Property Name="card_number" Type="nvarchar" MaxLength="250" />
+          <Property Name="card_expiry" Type="nvarchar" MaxLength="250" />
+          <Property Name="online_access" Type="nvarchar" MaxLength="250" />
+          <Property Name="pass" Type="nvarchar" MaxLength="250" />
+          <Property Name="card_limit" Type="nvarchar" MaxLength="250" />
+          <Property Name="amount" Type="nvarchar" MaxLength="250" />
+          <Property Name="price" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Zaga.dbo.crypto_payments' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="crypto_payments">
+          <Key>
+            <PropertyRef Name="paymentID" />
+            <PropertyRef Name="boxID" />
+            <PropertyRef Name="boxType" />
+            <PropertyRef Name="orderID" />
+            <PropertyRef Name="userID" />
+            <PropertyRef Name="countryID" />
+            <PropertyRef Name="coinLabel" />
+            <PropertyRef Name="amount" />
+            <PropertyRef Name="amountUSD" />
+            <PropertyRef Name="unrecognised" />
+            <PropertyRef Name="addr" />
+            <PropertyRef Name="txID" />
+            <PropertyRef Name="txConfirmed" />
+            <PropertyRef Name="processed" />
+          </Key>
+          <Property Name="paymentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="boxID" Type="int" Nullable="false" />
+          <Property Name="boxType" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="orderID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="userID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="countryID" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="coinLabel" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="amount" Type="decimal" Precision="20" Scale="8" Nullable="false" />
+          <Property Name="amountUSD" Type="decimal" Precision="20" Scale="8" Nullable="false" />
+          <Property Name="unrecognised" Type="tinyint" Nullable="false" />
+          <Property Name="addr" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="txID" Type="char" MaxLength="64" Nullable="false" />
+          <Property Name="txDate" Type="datetime" />
+          <Property Name="txConfirmed" Type="tinyint" Nullable="false" />
+          <Property Name="txCheckDate" Type="datetime" />
+          <Property Name="processed" Type="tinyint" Nullable="false" />
+          <Property Name="processedDate" Type="datetime" />
+          <Property Name="recordCreated" Type="datetime" />
+        </EntityType>
+        <EntityType Name="dating_site">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="product_name" Type="nvarchar" MaxLength="250" />
+          <Property Name="country" Type="nvarchar" MaxLength="250" />
+          <Property Name="sex" Type="nvarchar" MaxLength="500" />
+          <Property Name="subscription" Type="nvarchar" MaxLength="250" />
+          <Property Name="age" Type="nvarchar" MaxLength="250" />
+          <Property Name="additional_info" Type="nvarchar" MaxLength="250" />
+          <Property Name="username" Type="nvarchar" MaxLength="250" />
+          <Property Name="pass" Type="nvarchar" MaxLength="250" />
+          <Property Name="price" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="google_voice">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="product_name" Type="nvarchar" MaxLength="250" />
+          <Property Name="state" Type="nvarchar" MaxLength="250" />
+          <Property Name="phone" Type="nvarchar" MaxLength="500" />
+          <Property Name="details" Type="text" />
+          <Property Name="email" Type="nvarchar" MaxLength="250" />
+          <Property Name="pass" Type="nvarchar" MaxLength="250" />
+          <Property Name="recovery_email" Type="nvarchar" MaxLength="250" />
+          <Property Name="price" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="leads">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="product_name" Type="nvarchar" MaxLength="250" />
+          <Property Name="country" Type="nvarchar" MaxLength="250" />
+          <Property Name="details" Type="text" />
+          <Property Name="write_ups" Type="text" />
+          <Property Name="price" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="letter_writeups">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="product_name" Type="nvarchar" MaxLength="250" />
+          <Property Name="letter" Type="text" />
+          <Property Name="price" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="mass_email">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="product_name" Type="nvarchar" MaxLength="250" />
+          <Property Name="country" Type="nvarchar" MaxLength="250" />
+          <Property Name="details" Type="text" />
+          <Property Name="username" Type="nvarchar" MaxLength="250" />
+          <Property Name="pass" Type="nvarchar" MaxLength="250" />
+          <Property Name="price" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="mass_text">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="product_name" Type="nvarchar" MaxLength="250" />
+          <Property Name="country" Type="nvarchar" MaxLength="250" />
+          <Property Name="details" Type="text" />
+          <Property Name="username" Type="nvarchar" MaxLength="250" />
+          <Property Name="pass" Type="nvarchar" MaxLength="250" />
+          <Property Name="price" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="my_stuff">
+          <Key>
+            <PropertyRef Name="StuffID" />
+          </Key>
+          <Property Name="StuffID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="ProductID" Type="int" Nullable="false" />
+          <Property Name="ProductType" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="BuyDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="news">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="new_s" Type="text" />
+          <Property Name="date" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="paypal_transfer">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="paypal_name" Type="nvarchar" MaxLength="250" />
+          <Property Name="paypal_pass" Type="nvarchar" MaxLength="250" />
+          <Property Name="paypal_city" Type="nvarchar" MaxLength="250" />
+          <Property Name="paypal_state" Type="nvarchar" MaxLength="250" />
+          <Property Name="amount" Type="nvarchar" MaxLength="250" />
+          <Property Name="price" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="personal_chk">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="personal_check" Type="nvarchar" MaxLength="250" />
+          <Property Name="amount" Type="nvarchar" MaxLength="250" />
+          <Property Name="price" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="phone_number">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="product_name" Type="nvarchar" MaxLength="250" />
+          <Property Name="country" Type="nvarchar" MaxLength="250" />
+          <Property Name="state" Type="nvarchar" MaxLength="250" />
+          <Property Name="info" Type="nvarchar" MaxLength="250" />
+          <Property Name="link" Type="nvarchar" MaxLength="250" />
+          <Property Name="price" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="rdp">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="product_name" Type="nvarchar" MaxLength="250" />
+          <Property Name="country" Type="nvarchar" MaxLength="250" />
+          <Property Name="info" Type="nvarchar" MaxLength="250" />
+          <Property Name="details" Type="nvarchar" MaxLength="250" />
+          <Property Name="username" Type="nvarchar" MaxLength="250" />
+          <Property Name="pass" Type="nvarchar" MaxLength="250" />
+          <Property Name="price" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="send_check">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="client_name" Type="nvarchar" MaxLength="250" />
+          <Property Name="address" Type="nvarchar" MaxLength="250" />
+          <Property Name="city" Type="text" />
+          <Property Name="state" Type="nvarchar" MaxLength="250" />
+          <Property Name="zip_code" Type="nvarchar" MaxLength="250" />
+          <Property Name="amount" Type="nvarchar" MaxLength="250" />
+          <Property Name="price" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="shipping_account">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="product_name" Type="nvarchar" MaxLength="250" />
+          <Property Name="country" Type="nvarchar" MaxLength="250" />
+          <Property Name="additional_info" Type="nvarchar" MaxLength="500" />
+          <Property Name="account_status" Type="nvarchar" MaxLength="250" />
+          <Property Name="username" Type="nvarchar" MaxLength="250" />
+          <Property Name="pass" Type="nvarchar" MaxLength="250" />
+          <Property Name="price" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="suggest">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="product" Type="text" />
+          <Property Name="web" Type="text" />
+          <Property Name="info" Type="text" />
+          <Property Name="amount" Type="text" />
+          <Property Name="price" Type="text" />
+          <Property Name="username" Type="nvarchar" MaxLength="250" />
+          <Property Name="email" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="ticket">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="u_name" Type="nvarchar" MaxLength="250" />
+          <Property Name="title" Type="nvarchar" MaxLength="250" />
+          <Property Name="report" Type="nvarchar" MaxLength="250" />
+          <Property Name="desc" Type="text" />
+          <Property Name="type" Type="nvarchar" MaxLength="250" />
+          <Property Name="date" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="trans_pay">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="last_payment" Type="nvarchar" MaxLength="250" />
+          <Property Name="date" Type="nvarchar" MaxLength="50" />
+          <Property Name="transaction_id" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="transaction">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="u_id" Type="nvarchar" MaxLength="250" />
+          <Property Name="amount" Type="nvarchar" MaxLength="50" />
+          <Property Name="type" Type="nvarchar" MaxLength="250" />
+          <Property Name="desc" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="username" Type="nvarchar" MaxLength="250" />
+          <Property Name="userpass" Type="nvarchar" MaxLength="250" />
+          <Property Name="email" Type="nvarchar" MaxLength="250" />
+          <Property Name="icq_yim" Type="text" />
+          <Property Name="type" Type="nvarchar" MaxLength="250" />
+          <Property Name="date" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityContainer Name="mvcModelStoreContainer">
+          <EntitySet Name="admin" EntityType="Self.admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="amount" EntityType="Self.amount" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="bank_account" EntityType="Self.bank_account" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="bank_transfer" EntityType="Self.bank_transfer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="buy" EntityType="Self.buy" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="check_sample" EntityType="Self.check_sample" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="company_chk" EntityType="Self.company_chk" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="contact" EntityType="Self.contact" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="craigslist" EntityType="Self.craigslist" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="credit_card" EntityType="Self.credit_card" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dating_site" EntityType="Self.dating_site" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="google_voice" EntityType="Self.google_voice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="leads" EntityType="Self.leads" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="letter_writeups" EntityType="Self.letter_writeups" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="mass_email" EntityType="Self.mass_email" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="mass_text" EntityType="Self.mass_text" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="my_stuff" EntityType="Self.my_stuff" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="news" EntityType="Self.news" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="paypal_transfer" EntityType="Self.paypal_transfer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="personal_chk" EntityType="Self.personal_chk" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="phone_number" EntityType="Self.phone_number" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="rdp" EntityType="Self.rdp" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="send_check" EntityType="Self.send_check" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="shipping_account" EntityType="Self.shipping_account" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="suggest" EntityType="Self.suggest" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ticket" EntityType="Self.ticket" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="trans_pay" EntityType="Self.trans_pay" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="transaction" EntityType="Self.transaction" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="user" EntityType="Self.user" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="crypto_payments" EntityType="Self.crypto_payments" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[crypto_payments].[paymentID] AS [paymentID], 
+[crypto_payments].[boxID] AS [boxID], 
+[crypto_payments].[boxType] AS [boxType], 
+[crypto_payments].[orderID] AS [orderID], 
+[crypto_payments].[userID] AS [userID], 
+[crypto_payments].[countryID] AS [countryID], 
+[crypto_payments].[coinLabel] AS [coinLabel], 
+[crypto_payments].[amount] AS [amount], 
+[crypto_payments].[amountUSD] AS [amountUSD], 
+[crypto_payments].[unrecognised] AS [unrecognised], 
+[crypto_payments].[addr] AS [addr], 
+[crypto_payments].[txID] AS [txID], 
+[crypto_payments].[txDate] AS [txDate], 
+[crypto_payments].[txConfirmed] AS [txConfirmed], 
+[crypto_payments].[txCheckDate] AS [txCheckDate], 
+[crypto_payments].[processed] AS [processed], 
+[crypto_payments].[processedDate] AS [processedDate], 
+[crypto_payments].[recordCreated] AS [recordCreated]
+FROM [dbo].[crypto_payments] AS [crypto_payments]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="mvcModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="amount">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="u_id" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="amount1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="bank_account">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="bank_name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="country" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="username" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="userpass" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="pass" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="balance" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="account_number" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="routine_number" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="price" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="bank_transfer">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="bank_name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="account_number" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="routine_number" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="account_holder" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="username" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="userpass" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="security_qa" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="pass" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="amount" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="price" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="check_sample">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="product_name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="bank_name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="country" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="state" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="info" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="price" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="contact">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="u_name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="u_email" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="subject" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="message" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="craigslist">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="product_name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="country" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="details" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="username" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="userpass" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="pass" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="price" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="credit_card">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="holder_name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="card_number" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="card_expiry" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="online_access" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="pass" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="card_limit" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="amount" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="price" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="dating_site">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="product_name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="country" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="sex" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="subscription" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="age" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="additional_info" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="username" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="pass" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="price" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="google_voice">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="product_name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="state" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="phone" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="details" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="pass" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="recovery_email" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="price" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="leads">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="product_name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="country" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="details" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="write_ups" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="price" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="letter_writeups">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="product_name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="letter" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="price" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="mass_email">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="product_name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="country" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="details" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="username" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="pass" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="price" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="mass_text">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="product_name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="country" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="details" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="username" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="pass" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="price" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="news">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="date" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="new_s" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="paypal_transfer">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="paypal_name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="paypal_pass" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="paypal_city" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="paypal_state" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="amount" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="price" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="phone_number">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="product_name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="country" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="state" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="info" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="link" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="price" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="rdp">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="product_name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="country" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="info" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="details" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="username" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="pass" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="price" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="send_check">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="client_name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="address" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="city" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="state" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="zip_code" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="amount" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="price" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="shipping_account">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="product_name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="country" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="additional_info" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="account_status" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="username" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="pass" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="price" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="suggest">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="product" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="web" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="info" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="amount" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="price" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="username" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ticket">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="u_name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="title" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="report" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="desc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="type" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="date" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="transaction">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="u_id" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="amount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="type" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="desc" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="userpass" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="icq_yim" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="type" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="date" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="mvcEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="amount" EntityType="Self.amount" />
+          <EntitySet Name="bank_account" EntityType="Self.bank_account" />
+          <EntitySet Name="bank_transfer" EntityType="Self.bank_transfer" />
+          <EntitySet Name="check_sample" EntityType="Self.check_sample" />
+          <EntitySet Name="contact" EntityType="Self.contact" />
+          <EntitySet Name="craigslist" EntityType="Self.craigslist" />
+          <EntitySet Name="credit_card" EntityType="Self.credit_card" />
+          <EntitySet Name="dating_site" EntityType="Self.dating_site" />
+          <EntitySet Name="google_voice" EntityType="Self.google_voice" />
+          <EntitySet Name="leads" EntityType="Self.leads" />
+          <EntitySet Name="letter_writeups" EntityType="Self.letter_writeups" />
+          <EntitySet Name="mass_email" EntityType="Self.mass_email" />
+          <EntitySet Name="mass_text" EntityType="Self.mass_text" />
+          <EntitySet Name="news" EntityType="Self.news" />
+          <EntitySet Name="paypal_transfer" EntityType="Self.paypal_transfer" />
+          <EntitySet Name="phone_number" EntityType="Self.phone_number" />
+          <EntitySet Name="rdp" EntityType="Self.rdp" />
+          <EntitySet Name="send_check" EntityType="Self.send_check" />
+          <EntitySet Name="shipping_account" EntityType="Self.shipping_account" />
+          <EntitySet Name="suggest" EntityType="Self.suggest" />
+          <EntitySet Name="ticket" EntityType="Self.ticket" />
+          <EntitySet Name="transaction" EntityType="Self.transaction" />
+          <EntitySet Name="user" EntityType="Self.user" />
+          <EntitySet Name="company_chk" EntityType="mvcModel.company_chk" />
+          <EntitySet Name="personal_chk" EntityType="mvcModel.personal_chk" />
+          <EntitySet Name="crypto_payments" EntityType="mvcModel.crypto_payments" />
+          <EntitySet Name="buy" EntityType="mvcModel.buy" />
+          <EntitySet Name="trans_pay" EntityType="mvcModel.trans_pay" />
+          <EntitySet Name="admin" EntityType="mvcModel.admin" />
+          <EntitySet Name="my_stuff" EntityType="mvcModel.my_stuff" />
+        </EntityContainer>
+        <EntityType Name="company_chk">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="company_check" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="amount" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="price" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="personal_chk">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="personal_check" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="amount" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="price" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="crypto_payments">
+          <Key>
+            <PropertyRef Name="paymentID" />
+            <PropertyRef Name="boxID" />
+            <PropertyRef Name="boxType" />
+            <PropertyRef Name="orderID" />
+            <PropertyRef Name="userID" />
+            <PropertyRef Name="countryID" />
+            <PropertyRef Name="coinLabel" />
+            <PropertyRef Name="amount" />
+            <PropertyRef Name="amountUSD" />
+            <PropertyRef Name="unrecognised" />
+            <PropertyRef Name="addr" />
+            <PropertyRef Name="txID" />
+            <PropertyRef Name="txConfirmed" />
+            <PropertyRef Name="processed" />
+          </Key>
+          <Property Name="paymentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="boxID" Type="Int32" Nullable="false" />
+          <Property Name="boxType" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="orderID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="userID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="countryID" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="coinLabel" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="amount" Type="Decimal" Nullable="false" Precision="20" Scale="8" />
+          <Property Name="amountUSD" Type="Decimal" Nullable="false" Precision="20" Scale="8" />
+          <Property Name="unrecognised" Type="Byte" Nullable="false" />
+          <Property Name="addr" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="txID" Type="String" Nullable="false" MaxLength="64" FixedLength="true" Unicode="false" />
+          <Property Name="txDate" Type="DateTime" Precision="3" />
+          <Property Name="txConfirmed" Type="Byte" Nullable="false" />
+          <Property Name="txCheckDate" Type="DateTime" Precision="3" />
+          <Property Name="processed" Type="Byte" Nullable="false" />
+          <Property Name="processedDate" Type="DateTime" Precision="3" />
+          <Property Name="recordCreated" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="buy">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="u_name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="p_id" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="p_name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="info" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="login" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="pass" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="trans_pay">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="last_payment" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="date" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="transaction_id" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="admin">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="my_stuff">
+          <Key>
+            <PropertyRef Name="StuffID" />
+          </Key>
+          <Property Name="StuffID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductID" Type="Int32" Nullable="false" />
+          <Property Name="ProductType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BuyDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="mvcModelStoreContainer" CdmEntityContainer="mvcEntities">
+          <EntitySetMapping Name="amount">
+            <EntityTypeMapping TypeName="mvcModel.amount">
+              <MappingFragment StoreEntitySet="amount">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="u_id" ColumnName="u_id" />
+                <ScalarProperty Name="amount1" ColumnName="amount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="bank_account">
+            <EntityTypeMapping TypeName="mvcModel.bank_account">
+              <MappingFragment StoreEntitySet="bank_account">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="bank_name" ColumnName="bank_name" />
+                <ScalarProperty Name="country" ColumnName="country" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="userpass" ColumnName="userpass" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="pass" ColumnName="pass" />
+                <ScalarProperty Name="balance" ColumnName="balance" />
+                <ScalarProperty Name="account_number" ColumnName="account_number" />
+                <ScalarProperty Name="routine_number" ColumnName="routine_number" />
+                <ScalarProperty Name="price" ColumnName="price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="bank_transfer">
+            <EntityTypeMapping TypeName="mvcModel.bank_transfer">
+              <MappingFragment StoreEntitySet="bank_transfer">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="bank_name" ColumnName="bank_name" />
+                <ScalarProperty Name="account_number" ColumnName="account_number" />
+                <ScalarProperty Name="routine_number" ColumnName="routine_number" />
+                <ScalarProperty Name="account_holder" ColumnName="account_holder" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="userpass" ColumnName="userpass" />
+                <ScalarProperty Name="security_qa" ColumnName="security_qa" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="pass" ColumnName="pass" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="price" ColumnName="price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="check_sample">
+            <EntityTypeMapping TypeName="mvcModel.check_sample">
+              <MappingFragment StoreEntitySet="check_sample">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="product_name" ColumnName="product_name" />
+                <ScalarProperty Name="bank_name" ColumnName="bank_name" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="country" ColumnName="country" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="info" ColumnName="info" />
+                <ScalarProperty Name="price" ColumnName="price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="contact">
+            <EntityTypeMapping TypeName="mvcModel.contact">
+              <MappingFragment StoreEntitySet="contact">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="u_name" ColumnName="u_name" />
+                <ScalarProperty Name="u_email" ColumnName="u_email" />
+                <ScalarProperty Name="subject" ColumnName="subject" />
+                <ScalarProperty Name="message" ColumnName="message" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="craigslist">
+            <EntityTypeMapping TypeName="mvcModel.craigslist">
+              <MappingFragment StoreEntitySet="craigslist">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="product_name" ColumnName="product_name" />
+                <ScalarProperty Name="country" ColumnName="country" />
+                <ScalarProperty Name="details" ColumnName="details" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="userpass" ColumnName="userpass" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="pass" ColumnName="pass" />
+                <ScalarProperty Name="price" ColumnName="price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="credit_card">
+            <EntityTypeMapping TypeName="mvcModel.credit_card">
+              <MappingFragment StoreEntitySet="credit_card">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="holder_name" ColumnName="holder_name" />
+                <ScalarProperty Name="card_number" ColumnName="card_number" />
+                <ScalarProperty Name="card_expiry" ColumnName="card_expiry" />
+                <ScalarProperty Name="online_access" ColumnName="online_access" />
+                <ScalarProperty Name="pass" ColumnName="pass" />
+                <ScalarProperty Name="card_limit" ColumnName="card_limit" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="price" ColumnName="price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dating_site">
+            <EntityTypeMapping TypeName="mvcModel.dating_site">
+              <MappingFragment StoreEntitySet="dating_site">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="product_name" ColumnName="product_name" />
+                <ScalarProperty Name="country" ColumnName="country" />
+                <ScalarProperty Name="sex" ColumnName="sex" />
+                <ScalarProperty Name="subscription" ColumnName="subscription" />
+                <ScalarProperty Name="age" ColumnName="age" />
+                <ScalarProperty Name="additional_info" ColumnName="additional_info" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="pass" ColumnName="pass" />
+                <ScalarProperty Name="price" ColumnName="price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="google_voice">
+            <EntityTypeMapping TypeName="mvcModel.google_voice">
+              <MappingFragment StoreEntitySet="google_voice">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="product_name" ColumnName="product_name" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="details" ColumnName="details" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="pass" ColumnName="pass" />
+                <ScalarProperty Name="recovery_email" ColumnName="recovery_email" />
+                <ScalarProperty Name="price" ColumnName="price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="leads">
+            <EntityTypeMapping TypeName="mvcModel.leads">
+              <MappingFragment StoreEntitySet="leads">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="product_name" ColumnName="product_name" />
+                <ScalarProperty Name="country" ColumnName="country" />
+                <ScalarProperty Name="details" ColumnName="details" />
+                <ScalarProperty Name="write_ups" ColumnName="write_ups" />
+                <ScalarProperty Name="price" ColumnName="price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="letter_writeups">
+            <EntityTypeMapping TypeName="mvcModel.letter_writeups">
+              <MappingFragment StoreEntitySet="letter_writeups">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="product_name" ColumnName="product_name" />
+                <ScalarProperty Name="letter" ColumnName="letter" />
+                <ScalarProperty Name="price" ColumnName="price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mass_email">
+            <EntityTypeMapping TypeName="mvcModel.mass_email">
+              <MappingFragment StoreEntitySet="mass_email">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="product_name" ColumnName="product_name" />
+                <ScalarProperty Name="country" ColumnName="country" />
+                <ScalarProperty Name="details" ColumnName="details" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="pass" ColumnName="pass" />
+                <ScalarProperty Name="price" ColumnName="price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mass_text">
+            <EntityTypeMapping TypeName="mvcModel.mass_text">
+              <MappingFragment StoreEntitySet="mass_text">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="product_name" ColumnName="product_name" />
+                <ScalarProperty Name="country" ColumnName="country" />
+                <ScalarProperty Name="details" ColumnName="details" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="pass" ColumnName="pass" />
+                <ScalarProperty Name="price" ColumnName="price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="news">
+            <EntityTypeMapping TypeName="mvcModel.news">
+              <MappingFragment StoreEntitySet="news">
+                <ScalarProperty Name="new_s" ColumnName="new_s" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="date" ColumnName="date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="paypal_transfer">
+            <EntityTypeMapping TypeName="mvcModel.paypal_transfer">
+              <MappingFragment StoreEntitySet="paypal_transfer">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="paypal_name" ColumnName="paypal_name" />
+                <ScalarProperty Name="paypal_pass" ColumnName="paypal_pass" />
+                <ScalarProperty Name="paypal_city" ColumnName="paypal_city" />
+                <ScalarProperty Name="paypal_state" ColumnName="paypal_state" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="price" ColumnName="price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="phone_number">
+            <EntityTypeMapping TypeName="mvcModel.phone_number">
+              <MappingFragment StoreEntitySet="phone_number">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="product_name" ColumnName="product_name" />
+                <ScalarProperty Name="country" ColumnName="country" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="info" ColumnName="info" />
+                <ScalarProperty Name="link" ColumnName="link" />
+                <ScalarProperty Name="price" ColumnName="price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="rdp">
+            <EntityTypeMapping TypeName="mvcModel.rdp">
+              <MappingFragment StoreEntitySet="rdp">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="product_name" ColumnName="product_name" />
+                <ScalarProperty Name="country" ColumnName="country" />
+                <ScalarProperty Name="info" ColumnName="info" />
+                <ScalarProperty Name="details" ColumnName="details" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="pass" ColumnName="pass" />
+                <ScalarProperty Name="price" ColumnName="price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="send_check">
+            <EntityTypeMapping TypeName="mvcModel.send_check">
+              <MappingFragment StoreEntitySet="send_check">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="client_name" ColumnName="client_name" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="zip_code" ColumnName="zip_code" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="price" ColumnName="price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="shipping_account">
+            <EntityTypeMapping TypeName="mvcModel.shipping_account">
+              <MappingFragment StoreEntitySet="shipping_account">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="product_name" ColumnName="product_name" />
+                <ScalarProperty Name="country" ColumnName="country" />
+                <ScalarProperty Name="additional_info" ColumnName="additional_info" />
+                <ScalarProperty Name="account_status" ColumnName="account_status" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="pass" ColumnName="pass" />
+                <ScalarProperty Name="price" ColumnName="price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="suggest">
+            <EntityTypeMapping TypeName="mvcModel.suggest">
+              <MappingFragment StoreEntitySet="suggest">
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="product" ColumnName="product" />
+                <ScalarProperty Name="web" ColumnName="web" />
+                <ScalarProperty Name="info" ColumnName="info" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="price" ColumnName="price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ticket">
+            <EntityTypeMapping TypeName="mvcModel.ticket">
+              <MappingFragment StoreEntitySet="ticket">
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="u_name" ColumnName="u_name" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="report" ColumnName="report" />
+                <ScalarProperty Name="desc" ColumnName="desc" />
+                <ScalarProperty Name="type" ColumnName="type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="transaction">
+            <EntityTypeMapping TypeName="mvcModel.transaction">
+              <MappingFragment StoreEntitySet="transaction">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="u_id" ColumnName="u_id" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="desc" ColumnName="desc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="user">
+            <EntityTypeMapping TypeName="mvcModel.user">
+              <MappingFragment StoreEntitySet="user">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="userpass" ColumnName="userpass" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="icq_yim" ColumnName="icq_yim" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="date" ColumnName="date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="company_chk">
+            <EntityTypeMapping TypeName="mvcModel.company_chk">
+              <MappingFragment StoreEntitySet="company_chk">
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="company_check" ColumnName="company_check" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="personal_chk">
+            <EntityTypeMapping TypeName="mvcModel.personal_chk">
+              <MappingFragment StoreEntitySet="personal_chk">
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="personal_check" ColumnName="personal_check" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="crypto_payments">
+            <EntityTypeMapping TypeName="mvcModel.crypto_payments">
+              <MappingFragment StoreEntitySet="crypto_payments">
+                <ScalarProperty Name="recordCreated" ColumnName="recordCreated" />
+                <ScalarProperty Name="processedDate" ColumnName="processedDate" />
+                <ScalarProperty Name="processed" ColumnName="processed" />
+                <ScalarProperty Name="txCheckDate" ColumnName="txCheckDate" />
+                <ScalarProperty Name="txConfirmed" ColumnName="txConfirmed" />
+                <ScalarProperty Name="txDate" ColumnName="txDate" />
+                <ScalarProperty Name="txID" ColumnName="txID" />
+                <ScalarProperty Name="addr" ColumnName="addr" />
+                <ScalarProperty Name="unrecognised" ColumnName="unrecognised" />
+                <ScalarProperty Name="amountUSD" ColumnName="amountUSD" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="coinLabel" ColumnName="coinLabel" />
+                <ScalarProperty Name="countryID" ColumnName="countryID" />
+                <ScalarProperty Name="userID" ColumnName="userID" />
+                <ScalarProperty Name="orderID" ColumnName="orderID" />
+                <ScalarProperty Name="boxType" ColumnName="boxType" />
+                <ScalarProperty Name="boxID" ColumnName="boxID" />
+                <ScalarProperty Name="paymentID" ColumnName="paymentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="buy">
+            <EntityTypeMapping TypeName="mvcModel.buy">
+              <MappingFragment StoreEntitySet="buy">
+                <ScalarProperty Name="pass" ColumnName="pass" />
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="info" ColumnName="info" />
+                <ScalarProperty Name="p_name" ColumnName="p_name" />
+                <ScalarProperty Name="p_id" ColumnName="p_id" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="u_name" ColumnName="u_name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="trans_pay">
+            <EntityTypeMapping TypeName="mvcModel.trans_pay">
+              <MappingFragment StoreEntitySet="trans_pay">
+                <ScalarProperty Name="transaction_id" ColumnName="transaction_id" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="last_payment" ColumnName="last_payment" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="admin">
+            <EntityTypeMapping TypeName="mvcModel.admin">
+              <MappingFragment StoreEntitySet="admin">
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="my_stuff">
+            <EntityTypeMapping TypeName="mvcModel.my_stuff">
+              <MappingFragment StoreEntitySet="my_stuff">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="BuyDate" ColumnName="BuyDate" />
+                <ScalarProperty Name="ProductType" ColumnName="ProductType" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="StuffID" ColumnName="StuffID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

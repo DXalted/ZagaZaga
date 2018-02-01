@@ -1,0 +1,247 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ZAGA ZAGA</title>
+
+    <!--Css Link-->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.10.16/datatables.min.css" />
+    <link rel="stylesheet" href="~/Content/External/assets-1/css/slick.css">
+    <link rel="stylesheet" href="~/Content/External/assets-1/css/slick-theme.css">
+    <link rel="stylesheet" href="~/Content/External/assets-1/css/bootstrap.css">
+    <link rel="stylesheet" href="~/Content/External/assets-1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Content/External/assets-1/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="~/Content/External/assets-1/css/bootstrap-theme.min.css.map">
+    <link rel="stylesheet" href="~/Content/External/assets-1/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+    <link rel="stylesheet" href="~/Content/External/assets-1/css/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/Content/External/assets-1/css/font-awesome/css/font-awesome.css">
+
+    <script src="~/Content/External/assets-1/js/jquery-3.2.1.js"></script>
+    <!--Scripts Link-->
+    <script src="~/Content/External/assets-1/js/bootstrap.js"></script>
+    
+
+    <script src="~/Content/External/assets-1/js/npm.js"></script>
+    <script src="~/Content/External/assets-1/js/slick.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.16/datatables.min.js"></script>
+    <script type="text/javascript" src="~/Content/External/assets-1/js/main.js"></script>
+</head>
+
+<body>
+
+    <div class="header">
+        <div class="top">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-md-6 col-sm-6">
+                        <p style="font-size:14px;color:#fff">WELCOME TO THE <span style="color:#cc997f;font-weight:bold">ZAGA ZAGA</span></p>
+                    </div><!--close col-->
+                    <div class="col-md-6 col-sm-6">
+                        <ul style="color:#fff" class="list-inline pull-right">
+                            <li><a style="background-color:#eeeeee; outline:none; color:#000; font-weight:700" href="/AddMoney/Index" name="add_balance">Add Money</a></li>
+                            <li>Your balance : $@Session["user_amount"]</li>
+                            <li style="border-left:#AFAFAF 1px solid;border-right:#AFAFAF 1px solid;"><i class="fa fa-envelope" aria-hidden="true"></i></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Profile</a></li>
+                                    <li><a href="stuff.html">My Stuff</a></li>
+                                    <li><a href="mypaypal.html">My Paypal</a></li>
+                                    <li><a href="bulk.html">My Bulk</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">Logout</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div><!--close col-->
+                </div><!--close row-->
+            </div><!--close container-->
+        </div><!--close top-->
+
+
+        <nav class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <a href="@Url.Action("Index","Home")"><img src="~/Content/External/assets-1/img/logo.png"></a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li><a href="@Url.Action("Index","Home")" class="active-menu">Home</a></li>
+                    <li><a href="@Url.Action("Accounts","Home")">Accounts</a></li>
+                    <li><a href="@Url.Action("Index","Tools")">Tools</a></li>
+                    <li><a data-toggle="modal" data-target="#myModal" href="#">Send Check Next Day Delivery</a></li>
+                    <li><a href="@Url.Action("Index","Format")">Format & Write UPS</a></li>
+                    <li><a href="@Url.Action("Transfers","Home")">Transfers</a></li>
+
+                    <li><a href="@Url.Action("Index","User_Profile")">User Profile</a></li>
+                    <li><a href="#">Support</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="slider">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12">
+                    <h1 class="b_icon"><i class="fa fa-exchange" aria-hidden="true"></i></h1>
+                    </div><!--close col-->
+                </div><!--close row-->
+
+
+            </div><!--close container-->
+        </div><!--close slider-->
+    </div><!--close header-->
+
+    <div class="section">
+        <div class="sec-2">
+            <div class="container">
+
+
+                <div class="col-md-12 col-sm-12">
+                    <p style="font-size:18px; color:#00385c; font-weight:bold">Bank Transfers</p>
+                    <table id="Bank_table" class="display" cellspacing="0" width="100%">
+                        <thead>
+                            <tr>
+                                <th>Bank Name</th>
+                                <th>Account Number</th>
+                                <th>Routine Number</th>
+                                <th>Account Holder</th>
+                                <th>User Name</th>
+                                <th>User Pass</th>
+                                <th>Security QA</th>
+                                <th>Email</th>
+                                <th>Password</th>
+                                <th>Amount</th>
+                                <th>Price</th>
+                                <th>Action</th>
+
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th>Bank Name</th>
+                                <th>Account Number</th>
+                                <th>Routine Number</th>
+                                <th>Account Holder</th>
+                                <th>User Name</th>
+                                <th>User Pass</th>
+                                <th>Security QA</th>
+                                <th>Email</th>
+                                <th>Password</th>
+                                <th>Amount</th>
+                                <th>Price</th>
+                                <th>Action</th>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+@foreach (var items in ViewBag.bt)
+                            {
+                            <tr>
+                                <td>@items.bank_name</td>
+                                <td>@items.account_number</td>
+                                <td>@items.routine_number</td>
+                                <td>@items.account_holder</td>
+                                <td>@items.username</td>
+                                <td>@items.userpass</td>
+                                <td>@items.security_qa</td>
+                                <td>@items.email</td>
+                                <td>@items.pass</td>
+                                <td>@items.amount</td>
+                                <td>@items.price</td>
+                                <td>
+                                    <button type="button" class="btn btn-success">BUY</button>
+
+                                </td>
+                            </tr>
+}
+                        </tbody>
+                    </table>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <div class="footer">
+
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+
+                <div class="foot">
+                    <p style="font-size:18.62px;color:#FFFFFF;text-align:center;font-weight:bold">Connect with us</p>
+
+                    <div class="social-icon">
+                        <i class="fa fa-facebook-square" aria-hidden="true"></i>
+                        <i class="fa fa-twitter-square" aria-hidden="true"></i>
+                        <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+                        <i class="fa fa-google-plus-square" aria-hidden="true"></i>
+                    </div>
+                </div>
+
+                <div class="foot-end">
+                    <p style="font-size:14px;color:#a8a8a8;text-align:center;font-weight:bold">Copyright © 2018 ZAGA ZAGA. All rights Reserved.</p>
+                </div>
+
+
+
+            </div>
+        </div>
+
+    </div><!--close footer-->
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Please Select</h4>
+                </div>
+                <div class="modal-body">
+                    <a href="@Url.Action("personal_chk","Snd_Check")"><input type="submit" style="width:100%; height:50px; background-color: #00385c; color: #fff; outline: none" value="Personal Check" /></a>
+                    <a href="@Url.Action("company_chk","Snd_Check")"><input type="submit" style="width:100%; height:50px; background-color: #00385c; color: #fff; margin-top:10px; outline: none" value="Company Check" /></a>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script>
+    $(document).ready(function () {
+        $.noConflict();
+    $('#Bank_table').DataTable();
+} );
+$('#myTabs a').click(function (e) {
+    e.preventDefault()
+    $(this).tab('show')
+});
+$(function () {
+    $(".dropdown").hover(
+            function () {
+                $('.dropdown-menu', this).stop(true, true).fadeIn("fast");
+                $(this).toggleClass('open');
+                $('b', this).toggleClass("caret caret-up");
+            },
+            function () {
+                $('.dropdown-menu', this).stop(true, true).fadeOut("fast");
+                $(this).toggleClass('open');
+                $('b', this).toggleClass("caret caret-up");
+            });
+});
+
+</script>
+</html>
+

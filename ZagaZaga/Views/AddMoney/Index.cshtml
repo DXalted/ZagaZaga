@@ -1,0 +1,242 @@
+﻿@using ZagaZaga.GoUrlCore
+@model ZagaZaga.Models.GoUrl.DisplayCryptoboxModel
+@{
+    ViewBag.Title = "Index";
+}
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ZAGA ZAGA</title>
+
+    <!--Css Link-->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.10.16/datatables.min.css" />
+    <link rel="stylesheet" href="~/Content/External/assets-1/css/slick.css">
+    <link rel="stylesheet" href="~/Content/External/assets-1/css/slick-theme.css">
+    <link rel="stylesheet" href="~/Content/External/assets-1/css/bootstrap.css">
+    <link rel="stylesheet" href="~/Content/External/assets-1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Content/External/assets-1/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="~/Content/External/assets-1/css/bootstrap-theme.min.css.map">
+    <link rel="stylesheet" href="~/Content/External/assets-1/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+    <link rel="stylesheet" href="~/Content/External/assets-1/css/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/Content/External/assets-1/css/font-awesome/css/font-awesome.css">
+
+    <style>
+        .row + .row {
+            margin-top: 24px;
+        }
+    </style>
+
+
+    <script src="~/Content/External/assets-1/js/jquery-3.2.1.js"></script>
+
+    <script src="~/Content/External/assets-1/js/bootstrap.js"></script>
+    <script src="~/Content/External/assets-1/js/bootstrap.min.js"></script>
+
+    <script src="~/Content/External/assets-1/js/npm.js"></script>
+    <script src="~/Content/External/assets-1/js/slick.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.16/datatables.min.js"></script>
+
+
+    <script type="text/javascript" src="~/scripts/cryptobox.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $(".dropdown").hover(
+                    function () {
+                        $('.dropdown-menu', this).stop(true, true).fadeIn("fast");
+                        $(this).toggleClass('open');
+                        $('b', this).toggleClass("caret caret-up");
+                    },
+                    function () {
+                        $('.dropdown-menu', this).stop(true, true).fadeOut("fast");
+                        $(this).toggleClass('open');
+                        $('b', this).toggleClass("caret caret-up");
+                    });
+        });
+
+
+
+    </script>
+</head>
+
+<body>
+
+    <div class="header">
+        <div class="top">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-md-6 col-sm-6">
+                        <p style="font-size:14px;color:#fff">WELCOME TO THE <span style="color:#cc997f;font-weight:bold">ZAGA ZAGA</span></p>
+                    </div><!--close col-->
+                    <div class="col-md-6 col-sm-6">
+                        <ul style="color:#fff" class="list-inline pull-right">
+                            <li><a style="background-color:#eeeeee; outline:none; color:#000; font-weight:700" href="/AddMoney/Index" name="add_balance">Add Money</a></li>
+                            <li>Your balance : $@Session["user_amount"]</li>
+                            <li style="border-left:#AFAFAF 1px solid;border-right:#AFAFAF 1px solid;"><i class="fa fa-envelope" aria-hidden="true"></i></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">@Session["user_name"] <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Profile</a></li>
+                                    <li><a href="#">My Stuff</a></li>
+                                    <li><a href="#">My Paypal</a></li>
+                                    <li><a href="#">My Bulk</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">Logout</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div><!--close col-->
+                </div><!--close row-->
+            </div><!--close container-->
+        </div><!--close top-->
+
+
+        <nav class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <a href="@Url.Action("Index","Home")"><img src="~/Content/External/assets-1/img/logo.png"></a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li><a href="@Url.Action("Index","Home")" class="active-menu">Home</a></li>
+                    <li><a href="#">Accounts</a></li>
+                    <li><a href="@Url.Action("Index","Tools")">Tools</a></li>
+                    <li><a href="@Url.Action("Index","Snd_Check")">Send Check Next Day Delivery</a></li>
+                    <li><a href="@Url.Action("Index","Format")">Format & Write UPS</a></li>
+                    <li><a href="@Url.Action("Index","Bnk_T")">Transfers</a></li>
+
+                    <li><a href="#">User Profile</a></li>
+                    <li><a href="#">Support</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="slider">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12">
+                        <p style="font-size:35.08px; color:#FFFFFF; text-align:center">WELCOME TO THE</p>
+                        <p style="font-size:105.08px; color:#cc997f;font-weight:bold; text-align:center">ZAGA ZAGA</p>
+                    </div><!--close col-->
+                </div><!--close row-->
+
+                <div class="sld-inner">
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">BitCoin</h4>
+                                </div>
+                                <div class="panel-body text-center">
+                                    <div class="row">
+                                        <img src="/images/btc.png" height="60" alt="">
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <form class="btcForm" name="btcmoney" action="" method="post">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon">$</span>
+                                                    <input type="hidden" id="uid" name="uid" value="m_webziner">
+                                                    <input class="form-control" type="text" id="block_btc" name="block_btc" value="">
+                                                    <span class="input-group-btn">
+                                                        <button class="btn btn-default" type="submit">Pay!</button>
+                                                    </span>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">PerfectMoney</h4>
+                                </div>
+                                <div class="panel-body text-center">
+                                    <div class="row">
+                                        <img src="/images/pmbig.png" height="60" width="200" alt="">
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            @*<form class="pmForm" name="pmmoney" action="/AddMoney/PerfectMoney" method="post">*@
+                                                <div class="input-group">
+                                                    <span class="input-group-addon">$</span>
+                                                    <input class="form-control" type="text" id="block_pm" name="block_pm">
+                                                    <span class="input-group-btn">
+                                                        @*<input type="submit" class="btn btn-default" value="Pay!" />*@
+                                                        <input type="button" class="btn btn-default" value="Pay!" onclick="alert('Perfect money api is not responding...')"/>
+                                                    </span>
+                                                </div>
+                                            @*</form>*@
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div><!--close sld-inner-->
+
+            </div><!--close container-->
+        </div><!--close slider-->
+    </div><!--close header-->
+
+    <div class="section">
+        <div class="sec-2">
+            <div class="container">
+
+                <div class="row">
+                    @if (ViewBag.Message != "")
+                    {
+                        @Html.Cryptobox(Model)
+                        @Html.Raw(ViewBag.Message);
+                    }
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <div class="footer">
+
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+
+                <div class="foot">
+                    <p style="font-size:18.62px;color:#FFFFFF;text-align:center;font-weight:bold">Connect with us</p>
+
+                    <div class="social-icon">
+                        <i class="fa fa-facebook-square" aria-hidden="true"></i>
+                        <i class="fa fa-twitter-square" aria-hidden="true"></i>
+                        <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+                        <i class="fa fa-google-plus-square" aria-hidden="true"></i>
+                    </div>
+                </div>
+
+                <div class="foot-end">
+                    <p style="font-size:14px;color:#a8a8a8;text-align:center;font-weight:bold">Copyright © 2018 ZAGA ZAGA. All rights Reserved.</p>
+                </div>
+
+
+
+            </div>
+        </div>
+
+    </div><!--close footer-->
+
+</body>
+</html>
+<script>
+
+</script>
+

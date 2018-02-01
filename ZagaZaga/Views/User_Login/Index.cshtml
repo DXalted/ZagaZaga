@@ -1,0 +1,112 @@
+﻿@model ZagaZaga.Models.user
+
+@{
+    ViewBag.Title = "Index";
+}
+
+    @if (ViewBag.Message != null)
+{
+    <script type="text/javascript">
+        window.onload = function () {
+            alert("@ViewBag.Message");
+        }
+    </script>
+
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Css Link-->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.10.16/datatables.min.css" />
+    <link rel="stylesheet" href="~/Content/External/assets-1/css/slick.css">
+    <link rel="stylesheet" href="~/Content/External/assets-1/css/slick-theme.css">
+    <link rel="stylesheet" href="~/Content/External/assets-1/css/bootstrap.css">
+    <link rel="stylesheet" href="~/Content/External/assets-1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Content/External/assets-1/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="~/Content/External/assets-1/css/bootstrap-theme.min.css.map">
+    <link rel="stylesheet" href="~/Content/External/assets-1/css/style-2.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+    <link rel="stylesheet" href="~/Content/External/assets-1/css/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/Content/External/assets-1/css/font-awesome/css/font-awesome.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Passion+One" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet" type="text/css">
+
+    <title>Zaga Zaga | Login</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row main">
+            <div class="panel-heading">
+                <!-- <div class="panel-title text-center">
+                      <h1 class="title">Company Name</h1>
+                      <hr />
+                  </div>-->
+            </div>
+            <div class="main-login main-center">
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+                <form class="form-horizontal" method="post" action="#">
+
+                    <h1 class="text-center" style="font-weight: bold">Login</h1>
+                    <div class="form-group">
+                        <label for="username" class="cols-sm-2 control-label">Username</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
+                                @Html.TextBoxFor(model => model.username, null, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.username)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password" class="cols-sm-2 control-label">Password</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                                @Html.TextBoxFor(model => model.userpass, null, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.userpass)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="username" class="cols-sm-2 control-label">Captcha</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa-file-text fa" aria-hidden="true"></i></span>
+                                <input type="text" class="form-control" name="captcha" id="captcha" placeholder="Enter Captcha Text" />
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-group ">
+                        <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Login</button>
+                    </div>
+                    <div class="login-register">
+                        @Html.ActionLink("Need an account? Register Now!", "Index", "Register")
+                    </div>
+                </form>
+}
+            </div>
+        </div>
+    </div>
+   
+
+    <script type="text/javascript" src="~/Content/External/assets-1/assets/js/bootstrap.js"></script>
+</body>
+</html>
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

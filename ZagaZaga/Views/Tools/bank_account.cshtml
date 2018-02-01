@@ -1,0 +1,57 @@
+﻿@{
+    ViewBag.Title = "bank_account";
+}
+<table id="Bank_table_2" class="display" cellspacing="0" width="100">
+    <thead>
+        <tr>
+            <th>Bank Name</th>
+            <th>Country</th>
+            <th>User Name</th>
+            <th>User Pass</th>
+            <th>Email	</th>
+            <th>Password</th>
+            <th>Balance</th>
+            <th>Account Number</th>
+
+            <th>Routine Number</th>
+            <th>Price</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <th>Bank Name</th>
+            <th>Country</th>
+            <th>User Name</th>
+            <th>User Pass</th>
+            <th>Email	</th>
+            <th>Password</th>
+            <th>Balance</th>
+            <th>Account Number</th>
+            <th>Routine Number</th>
+            <th>Price</th>
+            <th>Action</th>
+        </tr>
+    </tfoot>
+    <tbody>
+       
+        @foreach (var item in ViewBag.bank)
+{
+        <tr>
+            <td>@item.bank_name</td>
+            <td>@item.country</td>
+            <td>@item.username</td>
+            <td>@item.userpass</td>
+            <td>@item.email</td>
+            <td>@item.pass</td>
+            <td>@item.balance</td>
+            <td>@item.account_number</td>
+            <td>@item.routine_number</td>
+            <td>@item.price</td>
+            <td>
+                <button type="button" class="btn btn-success">BUY</button>
+                @*<button type="button" class="btn btn-danger">NO CHECK!</button>*@
+            </td>
+        </tr>}
+</tbody>
+</table>
