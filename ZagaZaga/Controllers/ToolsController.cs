@@ -54,17 +54,16 @@ namespace ZagaZaga.Controllers
         {
 
             int UserID = Convert.ToInt32(Session["user_id"]);
+            string sUserID = UserID.ToString();
             //var ProductResult = new object();
             decimal ProductPrice = 0;
             decimal UserAmount = Convert.ToDecimal(Session["user_amount"]);
 
-
             if (ProductCategory == "RDP") { var ProductResult = db.rdp.Where(x => x.id == ProductID).FirstOrDefault(); ProductPrice = Convert.ToDecimal(ProductResult.price); }
 
-
-            if (ProductResult != null)
+            //if (ProductResult != null)
             {
-                if (UserAmount > Convert.ToInt32(ProductResult.price))
+                if (UserAmount > ProductPrice)
                 {
                     my_stuff obj = new my_stuff();
                     obj.UserID = UserID;
@@ -74,22 +73,17 @@ namespace ZagaZaga.Controllers
                     db.my_stuff.Add(obj);
                     db.SaveChanges();
 
-                    string User = UserID.ToString();
-                    var amount = db.amount.Where(x => x.u_id == User).FirstOrDefault();
+                    var amount = db.amount.Where(x => x.u_id == sUserID).FirstOrDefault();
 
                     if (amount != null)
                     {
-                        amount.amount1 = (Convert.ToDecimal(amount.amount1) - Convert.ToDecimal(result.price.ToString())).ToString();
+                        amount.amount1 = (Convert.ToDecimal(amount.amount1) - ProductPrice).ToString();
                         db.Entry(amount).State = EntityState.Modified;
                         db.SaveChanges();
                     }
 
-
-                    var amount2 = db.amount.Where(x => x.u_id == User).FirstOrDefault();
-                    if (amount2 != null)
-                    {
-                        Session["user_amount"] = amount2.amount1;
-                    }
+                    var amount2 = db.amount.Where(x => x.u_id == sUserID).FirstOrDefault();
+                    if (amount2 != null) Session["user_amount"] = amount2.amount1;
 
                     return JsonConvert.SerializeObject(obj);
                 }
@@ -101,22 +95,6 @@ namespace ZagaZaga.Controllers
                 }
             }
         }
-
-            return "";
-
-
-
-        }
-    //public ActionResult bank_account()
-    //{
-
-    //    var bank_accounts = db.bank_account.Where(x => x.id != 000);
-    //    ViewBag.bank = bank_accounts.ToList();
-
-    //    return View();
-    //}
-
-
-
+    }
 }
-}
+
