@@ -17,7 +17,7 @@ public class PerfectMoney
     public PerfectMoney()
     {
 
-        fdlkgjsdfljsdfdf
+
 
     }
 
