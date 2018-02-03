@@ -16,9 +16,6 @@ public class PerfectMoney
 {
     public PerfectMoney()
     {
-
-
-
     }
 
     #region Base Perfect Money API query methods 
