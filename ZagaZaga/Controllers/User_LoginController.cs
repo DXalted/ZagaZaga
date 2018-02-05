@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -42,7 +43,7 @@ namespace ZagaZaga.Controllers
                 {
                     Session["user_amount"] = "0";
                 }
-                    Session["user_id"] = userdetails.id;
+                Session["user_id"] = userdetails.id;
                 Session["user_name"] = userdetails.username;
                 Session["user_type"] = userdetails.type;
 
@@ -61,35 +62,48 @@ namespace ZagaZaga.Controllers
             }
             return View(u);
         }
-        public ActionResult VIP()
+        public string VIP(string UserID)
         {
             int id = Convert.ToInt32(Session["user_id"]);
+            string sUserID = id.ToString();
             var userdetails = db.user.Where(x => x.id == id).FirstOrDefault();
             if (userdetails != null)
             {
-
                 if (userdetails.type != "vip" || userdetails.type != "VIP")
                 {
-                    userdetails.type = "VIP";
-                    userdetails.date = DateTime.Now.ToString();
-                    db.Entry(userdetails).State = EntityState.Modified;
-                    //db.user.Add(userdetails);
-                    db.SaveChanges();
+                    var amount = db.amount.Where(x => x.u_id == sUserID).FirstOrDefault();
+                    if (amount != null)
+                    {
+                        if (Convert.ToDecimal(amount.amount1) >= 100)
+                        {
+                            amount.amount1 = (Convert.ToDecimal(amount.amount1) - 100).ToString();
+                            db.Entry(amount).State = EntityState.Modified;
+                            db.SaveChanges();
 
-
-
-
-                    ViewBag.Message = "Become VIP" ;
+                            userdetails.type = "VIP";
+                            userdetails.date = DateTime.Now.ToString();
+                            db.Entry(userdetails).State = EntityState.Modified;
+                            db.SaveChanges();
+                            var amount2 = db.amount.Where(x => x.u_id == sUserID).FirstOrDefault();
+                            if (amount2 != null) Session["user_amount"] = amount2.amount1;
+                            return JsonConvert.SerializeObject("You have successfully become a VIP member");
+                        }
+                        else
+                        {
+                            return JsonConvert.SerializeObject("Oops! It's look like you dont have enough amount");
+                        }
+                    }
+                    else
+                    {
+                        return JsonConvert.SerializeObject("Oops! It's look like you dont have enough amount");
+                    }
                 }
                 else
                 {
-                    ViewBag.Message = "Already A VIP";
+                    return JsonConvert.SerializeObject("You Are Already A Vip Member");
                 }
-
-                
-
             }
-            return View();
+            return "";
         }
 
     }

@@ -1,0 +1,173 @@
+﻿@model IEnumerable<ZagaZaga.Models.rdp>
+
+@{
+    ViewBag.Title = "RDP";
+}
+<div class="slider">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <h1 class="b_icon"><i class="fa fa-cogs" aria-hidden="true"></i></h1>
+            </div><!--close col-->
+        </div><!--close row-->
+
+        <div class="sld-inner">
+            <div class="row">
+
+                <div class="col-md-12 col-sm-12">
+                    <div>
+
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation" class="active">
+                                <a href="/Tools/RDP">
+                                    <label style="background-color:red" class="lab">0</label>
+                                    <span style="padding:5px; padding-right:10px"><i class="fa fa-desktop"></i></span>RDP
+                                </a>
+                            </li>
+                            <li role="presentation">
+                                <a href="/Tools/Letter_Writeups">
+                                    <label style="background-color:red" class="lab">0</label>
+                                    <span style="padding:5px; padding-right:10px"><i class="fa fa-envelope-o"></i></span>Letter
+                                </a>
+                            </li>
+                            <li role="presentation">
+                                <a href="/Tools/Google_Voice">
+                                    <label style="background-color:red" class="lab">0</label>
+                                    <span style="padding:5px; padding-right:10px"><i class="fa fa-skype"></i></span>Google Voice
+                                </a>
+                            </li>
+                            <li role="presentation">
+                                <a href="/Tools/Mass_Text">
+                                    <label style="background-color:red" class="lab">0</label>
+                                    <span style="padding:5px; padding-right:10px"><i class="fa fa-file-text-o"></i></span>Mass Text
+                                </a>
+                            </li>
+                            <li role="presentation">
+                                <a href="/Tools/Mass_Email">
+                                    <label style="background-color:red" class="lab">0</label>
+                                    <span style="padding:5px; padding-right:10px"><i class="fa fa-envelope-o"></i></span>Mass Email
+                                </a>
+                            </li>
+                            <li role="presentation">
+                                <a href="/Tools/Leads">
+                                    <label style="background-color:red" class="lab">0</label>
+                                    <span style="padding:5px; padding-right:10px"><i class="fa fa-envelope-o"></i></span>Leads
+                                </a>
+                            </li>
+                            <li role="presentation">
+                                <a href="/Tools/Send_Check">
+                                    <label style="background-color:red" class="lab">0</label>
+                                    <span style="padding:5px; padding-right:10px"><i class="fa fa-check-square-o"></i></span>Send Check
+                                </a>
+                            </li>
+                            <li role="presentation">
+                                <a href="/Tools/Phone_Number">
+                                    <label style="background-color:red" class="lab">0</label>
+                                    <span style="padding:5px; padding-right:10px"><i class="fa fa-phone"></i></span>Phone Number
+                                </a>
+                            </li>
+                            <li role="presentation">
+                                <a href="/Tools/Check_Sample">
+                                    <label style="background-color:red" class="lab">0</label>
+                                    <span style="padding:5px; padding-right:10px"><i class="fa fa-check"></i></span>Check Sample
+                                </a>
+                            </li>
+                            <li role="presentation">
+                                <a href="#Check">
+                                    <label style="background-color:red" class="lab">0</label>
+                                    <span style="padding:5px; padding-right:10px"><i class="fa fa-check"></i></span>SSN/DOB
+                                </a>
+                            </li>
+                            <li role="presentation">
+                                <a href="#Check">
+                                    <label style="background-color:red" class="lab">0</label>
+                                    <span style="padding:5px; padding-right:10px"><i class="fa fa-check"></i></span>E+P
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div><!--close col-->
+            </div><!--close row-->
+        </div><!--close sld-inner-->
+
+    </div><!--close container-->
+</div><!--close slider-->
+
+<div class="section">
+    <div class="sec-2">
+        <div class="container">
+
+            <div class="tab-content">
+                <div class="col-md-12 col-sm-12">
+                    <p style="font-size:18px; color:#00385c; font-weight:bold">RDP</p>
+                    <table class="dTable">
+                        <thead>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.product_name)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.country)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.info)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.details)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.username)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.pass)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.price)
+                                </th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.product_name)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.country)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.info)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.details)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.username)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.pass)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.price)
+                                    </td>
+                                    <td>
+                                        <a class="btn btn-success" data-product-id="@item.id" data-product-category="RDP" onclick="buyItem(this);">BUY</a>
+                                    </td>
+                                </tr>
+                            }
+                        <tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function () {
+        $(".dTable").DataTable();
+    });
+</script>

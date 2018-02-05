@@ -17,42 +17,22 @@ namespace ZagaZaga.Controllers
 
         public ActionResult Index()
         {
-
-            var check_sample = db.check_sample.Where(x => x.id != 0);
-            ViewBag.cs = check_sample.ToList();
-
-            var google_voice = db.google_voice.Where(x => x.id != 0);
-            ViewBag.google = google_voice.ToList();
-
-            var leads = db.leads.Where(x => x.id != 0);
-            ViewBag.lead = leads.ToList();
-
-            var letter = db.letter_writeups.Where(x => x.id != 0);
-            ViewBag.let = letter.ToList();
-
-            var mass_email = db.mass_email.Where(x => x.id != 0);
-            ViewBag.me = mass_email.ToList();
-
-            var mass_text = db.mass_text.Where(x => x.id != 0);
-            ViewBag.mt = mass_text.ToList();
-
-
-            var phone_no = db.phone_number.Where(x => x.id != 0);
-            ViewBag.phone = phone_no.ToList();
-
-            var rdp = db.rdp.Where(x => x.id != 0);
-            ViewBag.rdp = rdp.ToList();
-
-            var send_check = db.send_check.Where(x => x.id != 0);
-            ViewBag.sc = send_check.ToList();
-
-            return View();
+            return RedirectToAction("Index", "RDP");
         }
+
+        public ActionResult Check_Sample() { if (Session["user_id"] == null) return RedirectToAction("Index", "User_Login"); return View(db.check_sample.ToList()); }
+        public ActionResult RDP() { if (Session["user_id"] == null) return RedirectToAction("Index", "User_Login"); return View(db.rdp.ToList()); }
+        public ActionResult Send_Check() { if (Session["user_id"] == null) return RedirectToAction("Index", "User_Login"); return View(db.send_check.ToList()); }
+        public ActionResult Phone_Number() { if (Session["user_id"] == null) return RedirectToAction("Index", "User_Login"); return View(db.phone_number.ToList()); }
+        public ActionResult Mass_Text() { if (Session["user_id"] == null) return RedirectToAction("Index", "User_Login"); return View(db.mass_text.ToList()); }
+        public ActionResult Mass_Email() { if (Session["user_id"] == null) return RedirectToAction("Index", "User_Login"); return View(db.mass_email.ToList()); }
+        public ActionResult Letter_Writeups() { if (Session["user_id"] == null) return RedirectToAction("Index", "User_Login"); return View(db.letter_writeups.ToList()); }
+        public ActionResult Leads() { if (Session["user_id"] == null) return RedirectToAction("Index", "User_Login"); return View(db.leads.ToList()); }
+        public ActionResult Google_Voice() { if (Session["user_id"] == null) return RedirectToAction("Index", "User_Login"); return View(db.google_voice.ToList()); }
 
         [HttpPost]
         public string BuyItem(int ProductID, string ProductCategory)
         {
-
             int UserID = Convert.ToInt32(Session["user_id"]);
             string sUserID = UserID.ToString();
             //var ProductResult = new object();
@@ -60,6 +40,14 @@ namespace ZagaZaga.Controllers
             decimal UserAmount = Convert.ToDecimal(Session["user_amount"]);
 
             if (ProductCategory == "RDP") { var ProductResult = db.rdp.Where(x => x.id == ProductID).FirstOrDefault(); ProductPrice = Convert.ToDecimal(ProductResult.price); }
+            if (ProductCategory == "Check_Sample") { var ProductResult = db.check_sample.Where(x => x.id == ProductID).FirstOrDefault(); ProductPrice = Convert.ToDecimal(ProductResult.price); }
+            if (ProductCategory == "Send_Check") { var ProductResult = db.send_check.Where(x => x.id == ProductID).FirstOrDefault(); ProductPrice = Convert.ToDecimal(ProductResult.price); }
+            if (ProductCategory == "Phone_Number") { var ProductResult = db.phone_number.Where(x => x.id == ProductID).FirstOrDefault(); ProductPrice = Convert.ToDecimal(ProductResult.price); }
+            if (ProductCategory == "Mass_Text") { var ProductResult = db.mass_text.Where(x => x.id == ProductID).FirstOrDefault(); ProductPrice = Convert.ToDecimal(ProductResult.price); }
+            if (ProductCategory == "Mass_Email") { var ProductResult = db.mass_email.Where(x => x.id == ProductID).FirstOrDefault(); ProductPrice = Convert.ToDecimal(ProductResult.price); }
+            if (ProductCategory == "Letter_Writeups") { var ProductResult = db.letter_writeups.Where(x => x.id == ProductID).FirstOrDefault(); ProductPrice = Convert.ToDecimal(ProductResult.price); }
+            if (ProductCategory == "Leads") { var ProductResult = db.leads.Where(x => x.id == ProductID).FirstOrDefault(); ProductPrice = Convert.ToDecimal(ProductResult.price); }
+            if (ProductCategory == "Google_Voice") { var ProductResult = db.google_voice.Where(x => x.id == ProductID).FirstOrDefault(); ProductPrice = Convert.ToDecimal(ProductResult.price); }
 
             //if (ProductResult != null)
             {
