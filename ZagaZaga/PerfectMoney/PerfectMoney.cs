@@ -13,7 +13,7 @@ using System.Text.RegularExpressions;
 using System.Xml;
 
 public class PerfectMoney
-{
+{dsdasd
     public PerfectMoney()
     {
     }
