@@ -55,5 +55,7 @@ namespace ZagaZaga.Models
         public DbSet<trans_pay> trans_pay { get; set; }
         public DbSet<admin> admin { get; set; }
         public DbSet<my_stuff> my_stuff { get; set; }
+        public DbSet<ep> ep { get; set; }
+        public DbSet<ssn> ssn { get; set; }
     }
 }

@@ -12,14 +12,14 @@ namespace ZagaZaga.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class user
+    public partial class ssn
     {
         public int id { get; set; }
-        public string username { get; set; }
-        public string userpass { get; set; }
+        public string product_name { get; set; }
+        public string country { get; set; }
+        public string details { get; set; }
         public string email { get; set; }
-        public string icq_yim { get; set; }
-        public string type { get; set; }
-        public string date { get; set; }
+        public string pass { get; set; }
+        public string price { get; set; }
     }
 }

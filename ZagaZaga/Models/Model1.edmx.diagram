@@ -35,6 +35,8 @@
         <EntityTypeShape EntityType="mvcModel.trans_pay" Width="1.5" PointX="15.375" PointY="4.75" />
         <EntityTypeShape EntityType="mvcModel.admin" Width="1.5" PointX="15.375" PointY="7.75" />
         <EntityTypeShape EntityType="mvcModel.my_stuff" Width="1.5" PointX="9.375" PointY="15.75" />
+        <EntityTypeShape EntityType="mvcModel.ep" Width="1.5" PointX="15.375" PointY="10.75" />
+        <EntityTypeShape EntityType="mvcModel.ssn" Width="1.5" PointX="15.375" PointY="14.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
