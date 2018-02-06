@@ -2,9 +2,12 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Script.Serialization;
 using ZagaZaga.Models;
 
 namespace ZagaZaga.Controllers
@@ -30,37 +33,43 @@ namespace ZagaZaga.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Index(user u)
         {
-            var userdetails = db.user.Where(x => x.username == u.username && x.userpass == u.userpass).FirstOrDefault();
-            if (userdetails != null)
+            if (!Validate())
             {
-                string USerID = userdetails.id.ToString();
-                var amount = db.amount.Where(x => x.u_id == USerID).FirstOrDefault();
-                if (amount != null)
+                return View();
+            }
+
+                var userdetails = db.user.Where(x => x.username == u.username && x.userpass == u.userpass).FirstOrDefault();
+                if (userdetails != null)
                 {
-                    Session["user_amount"] = amount.amount1;
+                    string USerID = userdetails.id.ToString();
+                    var amount = db.amount.Where(x => x.u_id == USerID).FirstOrDefault();
+                    if (amount != null)
+                    {
+                        Session["user_amount"] = amount.amount1;
+                    }
+                    else
+                    {
+                        Session["user_amount"] = "0";
+                    }
+                    Session["user_id"] = userdetails.id;
+                    Session["user_name"] = userdetails.username;
+                    Session["user_type"] = userdetails.type;
+
+                    ViewBag.Message = "Login Successfully";
+                    return RedirectToAction("Index", "Home");
+
+                    //if (Session["user_type"] == "VIP" || Session["user_type"] == "vip")
+                    //{
+
+                    //}
                 }
                 else
                 {
-                    Session["user_amount"] = "0";
+                    ViewBag.Message = "Wrong Username Or Password";
+                    return RedirectToAction("Index", "User_Login");
                 }
-                Session["user_id"] = userdetails.id;
-                Session["user_name"] = userdetails.username;
-                Session["user_type"] = userdetails.type;
-
-                ViewBag.Message = "Login Successfully";
-                return RedirectToAction("Index", "Home");
-
-                //if (Session["user_type"] == "VIP" || Session["user_type"] == "vip")
-                //{
-
-                //}
-            }
-            else
-            {
-                ViewBag.Message = "Wrong Username Or Password";
-                return RedirectToAction("Index", "User_Login");
-            }
-            return View(u);
+                return View(u);
+            
         }
         public string VIP(string UserID)
         {
@@ -69,7 +78,7 @@ namespace ZagaZaga.Controllers
             var userdetails = db.user.Where(x => x.id == id).FirstOrDefault();
             if (userdetails != null)
             {
-                if (userdetails.type != "vip" || userdetails.type != "VIP")
+                if (userdetails.type != "VIP")
                 {
                     var amount = db.amount.Where(x => x.u_id == sUserID).FirstOrDefault();
                     if (amount != null)
@@ -106,5 +115,56 @@ namespace ZagaZaga.Controllers
             return "";
         }
 
+        public bool Validate()
+        {
+
+            string Response = Request["g-recaptcha-response"];//Getting Response String Appned to Post Method
+
+            bool Valid = false;
+            //Request to Google Server
+            HttpWebRequest req = (HttpWebRequest)WebRequest.Create(" https://www.google.com/recaptcha/api/siteverify?secret=6LcVh0QUAAAAAPRSn_fOJB-3G6sKWyboFg7PKpj8&response=" + Response);
+
+            try
+            {
+                //Google recaptcha Responce 
+                using (WebResponse wResponse = req.GetResponse())
+
+                {
+
+                    using (StreamReader readStream = new StreamReader(wResponse.GetResponseStream()))
+                    {
+                        string jsonResponse = readStream.ReadToEnd();
+
+                        JavaScriptSerializer js = new JavaScriptSerializer();
+                        MyObject data = js.Deserialize<MyObject>(jsonResponse);// Deserialize Json 
+
+                        Valid = Convert.ToBoolean(data.success);
+
+
+                    }
+                }
+
+                return Valid;
+
+            }
+            catch (WebException ex)
+            {
+                throw ex;
+            }
+
+
+        }
+
+
     }
+    public class MyObject
+    {
+        public string success { get; set; }
+
+
+    }
+
+
+
+
 }
