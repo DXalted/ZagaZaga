@@ -15,9 +15,9 @@ namespace ZagaZaga.Models
     public partial class my_stuff
     {
         public int StuffID { get; set; }
+        public int UserID { get; set; }
         public int ProductID { get; set; }
         public string ProductType { get; set; }
         public System.DateTime BuyDate { get; set; }
-        public int UserID { get; set; }
     }
 }

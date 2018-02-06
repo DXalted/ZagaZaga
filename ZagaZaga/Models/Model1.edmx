@@ -251,6 +251,16 @@ warning 6002: The table/view 'farhanko_Zaga.dbo.crypto_payments' does not have a
           <Property Name="pass" Type="nvarchar" MaxLength="250" />
           <Property Name="price" Type="nvarchar" MaxLength="250" />
         </EntityType>
+        <EntityType Name="my_stuff">
+          <Key>
+            <PropertyRef Name="StuffID" />
+          </Key>
+          <Property Name="StuffID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="ProductID" Type="int" Nullable="false" />
+          <Property Name="ProductType" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="BuyDate" Type="datetime" Nullable="false" />
+        </EntityType>
         <EntityType Name="news">
           <Key>
             <PropertyRef Name="id" />
@@ -417,6 +427,7 @@ warning 6002: The table/view 'farhanko_Zaga.dbo.crypto_payments' does not have a
           <EntitySet Name="letter_writeups" EntityType="Self.letter_writeups" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="mass_email" EntityType="Self.mass_email" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="mass_text" EntityType="Self.mass_text" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="my_stuff" EntityType="Self.my_stuff" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="news" EntityType="Self.news" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="paypal_transfer" EntityType="Self.paypal_transfer" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="personal_chk" EntityType="Self.personal_chk" Schema="dbo" store:Type="Tables" />
@@ -771,9 +782,9 @@ FROM [dbo].[crypto_payments] AS [crypto_payments]</DefiningQuery>
           <EntitySet Name="buy" EntityType="mvcModel.buy" />
           <EntitySet Name="trans_pay" EntityType="mvcModel.trans_pay" />
           <EntitySet Name="admin" EntityType="mvcModel.admin" />
-          <EntitySet Name="my_stuff" EntityType="mvcModel.my_stuff" />
           <EntitySet Name="ep" EntityType="mvcModel.ep" />
           <EntitySet Name="ssn" EntityType="mvcModel.ssn" />
+          <EntitySet Name="my_stuff" EntityType="mvcModel.my_stuff" />
         </EntityContainer>
         <EntityType Name="company_chk">
           <Key>
@@ -859,16 +870,6 @@ FROM [dbo].[crypto_payments] AS [crypto_payments]</DefiningQuery>
           <Property Name="Username" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="Password" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityType Name="my_stuff">
-          <Key>
-            <PropertyRef Name="StuffID" />
-          </Key>
-          <Property Name="StuffID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ProductID" Type="Int32" Nullable="false" />
-          <Property Name="ProductType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="BuyDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="UserID" Type="Int32" Nullable="false" />
-        </EntityType>
         <EntityType Name="ep">
           <Key>
             <PropertyRef Name="id" />
@@ -892,6 +893,16 @@ FROM [dbo].[crypto_payments] AS [crypto_payments]</DefiningQuery>
           <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="pass" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="price" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="my_stuff">
+          <Key>
+            <PropertyRef Name="StuffID" />
+          </Key>
+          <Property Name="StuffID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="ProductID" Type="Int32" Nullable="false" />
+          <Property Name="ProductType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BuyDate" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1306,6 +1317,17 @@ FROM [dbo].[crypto_payments] AS [crypto_payments]</DefiningQuery>
                 <ScalarProperty Name="country" ColumnName="country" />
                 <ScalarProperty Name="product_name" ColumnName="product_name" />
                 <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="my_stuff">
+            <EntityTypeMapping TypeName="mvcModel.my_stuff">
+              <MappingFragment StoreEntitySet="my_stuff">
+                <ScalarProperty Name="BuyDate" ColumnName="BuyDate" />
+                <ScalarProperty Name="ProductType" ColumnName="ProductType" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="StuffID" ColumnName="StuffID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
