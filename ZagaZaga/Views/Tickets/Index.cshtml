@@ -56,10 +56,10 @@
                 <ul class="nav" id="main-menu">
 
                     <li>
-                        <a href="index.html" class="waves-effect waves-dark"><i class="fa fa-dashboard"></i> Dashboard</a>
+                        <a class="active-menu waves-effect waves-dark" href="@Url.Action("Index","Admin_Dashboard")"><i class="fa fa-dashboard"></i> Dashboard</a>
                     </li>
                     <li>
-                        <a href="#" class="waves-effect waves-dark"><i class="fa fa-edit"></i> Products<span class="fa arrow"> </span></a>
+                        <a href="#" class="waves-effect waves-dark"><i class="fa fa-edit"></i> Accounts<span class="fa arrow"> </span></a>
                         <ul class="nav nav-second-level">
 
                             <li>
@@ -69,11 +69,24 @@
                                 <a href="@Url.Action("Index","Shipping_Account")" class="waves-effect waves-dark"><i class="fa fa-edit"></i> Shipping Account </a>
                             </li>
                             <li>
-                                <a href="@Url.Action("Index","RDP")" class="waves-effect waves-dark"><i class="fa fa-edit"></i> RDP </a>
-                            </li>
-                            <li>
                                 <a href="@Url.Action("Index","Dating_Site")" class="waves-effect waves-dark"><i class="fa fa-edit"></i> Dating Site</a>
                             </li>
+                            <li>
+                                <a href="@Url.Action("Index", "Craiglist")" class="waves-effect waves-dark"><i class="fa fa-edit"></i> Craiglist</a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+
+                    <li>
+                        <a href="#" class="waves-effect waves-dark"><i class="fa fa-edit"></i> Tools<span class="fa arrow"> </span></a>
+                        <ul class="nav nav-second-level">
+
+                            <li>
+                                <a href="@Url.Action("Index","RDP")" class="waves-effect waves-dark"><i class="fa fa-edit"></i> RDP </a>
+                            </li>
+
                             <li>
                                 <a href="@Url.Action("Index","Letter")" class="waves-effect waves-dark"><i class="fa fa-edit"></i> Letter</a>
                             </li>
@@ -83,9 +96,7 @@
                             <li>
                                 <a href="@Url.Action("Index","Mass_Text")" class="waves-effect waves-dark"><i class="fa fa-edit"></i> Mass Text</a>
                             </li>
-                            <li>
-                                <a href="@Url.Action("Index", "Craiglist")" class="waves-effect waves-dark"><i class="fa fa-edit"></i> Craiglist</a>
-                            </li>
+
                             <li>
                                 <a href="@Url.Action("Index", "Mass_Email")" class="waves-effect waves-dark"><i class="fa fa-edit"></i> Mass Email </a>
                             </li>
@@ -96,7 +107,27 @@
                                 <a href="@Url.Action("Index", "Send_Check")" class="waves-effect waves-dark"><i class="fa fa-edit"></i> Send Check</a>
                             </li>
                             <li>
-                                <a href="@Url.Action("Index", "Bank_Transfer")" class="active-menu waves-effect waves-dark"><i class="fa fa-edit"></i> Bank Transfer</a>
+                                <a href="@Url.Action("Index", "Phone_Number")" class="waves-effect waves-dark"><i class="fa fa-edit"></i> Phone Number</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Index", "Check_Sample")" class="waves-effect waves-dark"><i class="fa fa-edit"></i> Check Sample</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("ssn", "Admin_Dashboard")" class="waves-effect waves-dark"><i class="fa fa-edit"></i> SSN</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("ep", "Admin_Dashboard")" class="waves-effect waves-dark"><i class="fa fa-edit"></i> EP</a>
+                            </li>
+                        </ul>
+                    </li>
+
+
+                    <li>
+                        <a href="#" class="waves-effect waves-dark"><i class="fa fa-edit"></i> Transfers<span class="fa arrow"> </span></a>
+                        <ul class="nav nav-second-level">
+
+                            <li>
+                                <a href="@Url.Action("Index", "Bank_Transfer")" class="waves-effect waves-dark"><i class="fa fa-edit"></i> Bank Transfer</a>
                             </li>
                             <li>
                                 <a href="@Url.Action("Index", "Credit_Card")" class="waves-effect waves-dark"><i class="fa fa-edit"></i> Credit Card</a>
@@ -104,32 +135,52 @@
                             <li>
                                 <a href="@Url.Action("Index", "Paypal_Transfer")" class="waves-effect waves-dark"><i class="fa fa-edit"></i> Paypal Transfer</a>
                             </li>
-                            <li>
-                                <a href="@Url.Action("Index", "Phone_Number")" class="waves-effect waves-dark"><i class="fa fa-edit"></i> Phone Number</a>
-                            </li>
-                            <li>
-                                <a href="@Url.Action("Index", "Check_Sample")" class="waves-effect waves-dark"><i class="fa fa-edit"></i> Check Sample</a>
-                            </li>
                         </ul>
+                    </li>
+
                     <li>
-                        <a href="news.html" class="waves-effect waves-dark"><i class="fa fa-edit"></i> News</a>
+                        <a href="#" class="waves-effect waves-dark"><i class="fa fa-edit"></i> Send Check Delievery<span class="fa arrow"> </span></a>
+                        <ul class="nav nav-second-level">
+
+                            <li>
+                                <a href="@Url.Action("P_Check", "Admin_Dashboard")" class="waves-effect waves-dark"><i class="fa fa-edit"></i> Personal Check</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("C_Check", "Admin_Dashboard")" class="waves-effect waves-dark"><i class="fa fa-edit"></i> Company Check</a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+
+
+
+
+
+                    <li>
+                        <a href="@Url.Action("Index", "News")" class="waves-effect waves-dark"><i class="fa fa-edit"></i> News</a>
+                    </li>
+
+
+
+                    <li>
+                        <a href="#" class="waves-effect waves-dark"><i class="fa fa-edit"></i> View Suggestions</a>
                     </li>
                     <li>
-                        <a href="suggest.html" class="waves-effect waves-dark"><i class="fa fa-edit"></i> View Suggestions</a>
+                        <a href="#" class="waves-effect waves-dark"><i class="fa fa-edit"></i> View Queries</a>
                     </li>
                     <li>
-                        <a href="contact.html" class="waves-effect waves-dark"><i class="fa fa-edit"></i> View Queries</a>
+                        <a href="@Url.Action("Index", "Tickets")" class="waves-effect waves-dark"><i class="fa fa-edit"></i> View Tickets</a>
                     </li>
                     <li>
-                        <a href="ticket.html" class="active-menu waves-effect waves-dark"><i class="fa fa-edit"></i> View Tickets</a>
+                        <a href="@Url.Action("Bulk", "Admin_Dashboard")" class="waves-effect waves-dark"><i class="fa fa-edit"></i> Bulk</a>
                     </li>
                     <li>
-                        <a href="bulk.html" class="waves-effect waves-dark"><i class="fa fa-edit"></i> Bulk</a>
+                        <a href="@Url.Action("Orders", "Admin_Dashboard")" class="waves-effect waves-dark"><i class="fa fa-edit"></i> Orders</a>
                     </li>
-                    </li>
+
                 </ul>
             </div>
-
 
         </nav>
         <!-- /. NAV SIDE  -->

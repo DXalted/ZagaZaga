@@ -115,6 +115,12 @@
                             <li>
                                 <a href="@Url.Action("Index", "Check_Sample")" class="waves-effect waves-dark"><i class="fa fa-edit"></i> Check Sample</a>
                             </li>
+                            <li>
+                                <a href="@Url.Action("ssn", "Admin_Dashboard")" class="waves-effect waves-dark"><i class="fa fa-edit"></i> SSN</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("ep", "Admin_Dashboard")" class="waves-effect waves-dark"><i class="fa fa-edit"></i> EP</a>
+                            </li>
                         </ul>
                     </li>
 
@@ -153,6 +159,7 @@
 
 
 
+
                     <li>
                         <a href="@Url.Action("Index", "News")" class="waves-effect waves-dark"><i class="fa fa-edit"></i> News</a>
                     </li>
@@ -169,7 +176,10 @@
                         <a href="@Url.Action("Index", "Tickets")" class="waves-effect waves-dark"><i class="fa fa-edit"></i> View Tickets</a>
                     </li>
                     <li>
-                        <a href="#" class="waves-effect waves-dark"><i class="fa fa-edit"></i> Bulk</a>
+                        <a href="@Url.Action("Bulk", "Admin_Dashboard")" class="waves-effect waves-dark"><i class="fa fa-edit"></i> Bulk</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Orders", "Admin_Dashboard")" class="waves-effect waves-dark"><i class="fa fa-edit"></i> Orders</a>
                     </li>
 
                 </ul>
@@ -299,88 +309,3 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>ssn</title>
-</head>
-<body>
-    <script src="~/Scripts/jquery-1.8.2.min.js"></script>
-    <script src="~/Scripts/jquery.validate.min.js"></script>
-    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
-    
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
-        @Html.ValidationSummary(true)
-    
-        <fieldset>
-            <legend>ssn</legend>
-    
-            <div class="editor-label">
-                @Html.LabelFor(model => model.product_name)
-            </div>
-            <div class="editor-field">
-                
-            </div>
-    
-            <div class="editor-label">
-                @Html.LabelFor(model => model.country)
-            </div>
-            <div class="editor-field">
-               
-            </div>
-    
-            <div class="editor-label">
-                @Html.LabelFor(model => model.details)
-            </div>
-            <div class="editor-field">
-                
-            </div>
-    
-            <div class="editor-label">
-                @Html.LabelFor(model => model.email)
-            </div>
-            <div class="editor-field">
-                
-            </div>
-    
-            <div class="editor-label">
-                @Html.LabelFor(model => model.pass)
-            </div>
-            <div class="editor-field">
-               
-            </div>
-    
-            <div class="editor-label">
-                @Html.LabelFor(model => model.price)
-            </div>
-            <div class="editor-field">
-                
-            </div>
-    
-            <p>
-                <input type="submit" value="Create" />
-            </p>
-        </fieldset>
-    }
-    
-    <div>
-        @Html.ActionLink("Back to List", "Index")
-    </div>
-</body>
-</html>

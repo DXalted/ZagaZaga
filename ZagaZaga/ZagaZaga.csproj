@@ -233,6 +233,9 @@
     <Compile Include="Models\dating_site.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ep.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\google_voice.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -304,6 +307,9 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\shipping_account.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ssn.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\suggest.cs">
@@ -735,6 +741,10 @@
     <Content Include="Views\Tools\Leads.cshtml" />
     <Content Include="Views\Tools\Google_Voice.cshtml" />
     <Content Include="Views\Tools\Mass_Email.cshtml" />
+    <Content Include="Views\Admin_Dashboard\ssn.cshtml" />
+    <Content Include="Views\Admin_Dashboard\ep.cshtml" />
+    <Content Include="Views\Admin_Dashboard\Bulk.cshtml" />
+    <Content Include="Views\Admin_Dashboard\Orders.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

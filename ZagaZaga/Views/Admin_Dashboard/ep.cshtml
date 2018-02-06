@@ -1,9 +1,9 @@
-﻿@model ZagaZaga.Models.mass_email
+﻿@model ZagaZaga.Models.ep
 
 @{
-    ViewBag.Title = "Index";
     Layout = null;
 }
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -49,6 +49,7 @@
         <li>
             <a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
         </li>
+
 
 
         <!--/. NAV TOP  -->
@@ -189,11 +190,11 @@
         <div id="page-wrapper">
             <div class="header">
                 <h1 class="page-header">
-                    Mass Email
+                    E+P
                 </h1>
                 <ol class="breadcrumb">
                     <li><a href="#">Home</a></li>
-                    <li><a href="#"> Mass Email</a></li>
+                    <li><a href="#"> E+P</a></li>
                     <li class="active">Data</li>
                 </ol>
 
@@ -203,81 +204,77 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="card">
-
                             <div class="card-content">
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true)
-                                <form class="col s12">
-                                    <div class="row">
-                                        <div class="input-field col s12">
-                                            @Html.EditorFor(model => model.product_name)
-                                            @Html.ValidationMessageFor(model => model.product_name)
-                                            <label for="pr_name">Product Name</label>
+                                @using (Html.BeginForm())
+                                {
+                                    @Html.AntiForgeryToken()
+                                    @Html.ValidationSummary(true)
+                                    <form class="col s12">
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                @Html.EditorFor(model => model.product_name)
+                                                @Html.ValidationMessageFor(model => model.product_name)
+                                                <label for="bank_name">Product Name</label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                @Html.EditorFor(model => model.country)
+                                                @Html.ValidationMessageFor(model => model.country)
+                                                <label for="country">Country</label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                @Html.EditorFor(model => model.details)
+                                                @Html.ValidationMessageFor(model => model.details)
+                                                <label for="uname">Details</label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                @Html.EditorFor(model => model.email)
+                                                @Html.ValidationMessageFor(model => model.email)
+                                                <label for="upass">Email</label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                @Html.EditorFor(model => model.pass)
+                                                @Html.ValidationMessageFor(model => model.pass)
+                                                <label for="email">Password</label>
+                                            </div>
+                                        </div><div class="row">
+                                            <div class="input-field col s12">
+                                                @Html.EditorFor(model => model.price)
+                                                @Html.ValidationMessageFor(model => model.price)
+                                                <label for="pass">Price</label>
+                                            </div>
                                         </div>
 
-                                    </div>
-                                    <div class="row">
-                                        <div class="input-field col s12">
-                                            @Html.EditorFor(model => model.country)
-                                            @Html.ValidationMessageFor(model => model.country)
-                                            <label for="country">Country</label>
-                                        </div>
-                                    </div>
 
-                                    <div class="row">
-                                        <div class="input-field col s12">
-                                            @Html.EditorFor(model => model.details)
-                                            @Html.ValidationMessageFor(model => model.details)
-                                            <label for="details">Details</label>
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                <input type="submit" class="btn btn-info" name="submit">
+                                            </div>
                                         </div>
-                                    </div>
+                                    </form>
 
-                                    <div class="row">
-                                        <div class="input-field col s12">
-                                            @Html.EditorFor(model => model.username)
-                                            @Html.ValidationMessageFor(model => model.username)
-                                            <label for="uname">User Name</label>
-                                        </div>
-                                    </div><div class="row">
-                                        <div class="input-field col s12">
-                                            @Html.EditorFor(model => model.pass)
-                                            @Html.ValidationMessageFor(model => model.pass)
-                                            <label for="pass">Password</label>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="input-field col s12">
-                                            @Html.EditorFor(model => model.price)
-                                            @Html.ValidationMessageFor(model => model.price)
-                                            <label for="price">Price</label>
-                                        </div>
-                                    </div><div class="row">
-                                        <div class="input-field col s12">
-                                            <input type="submit" class="btn btn-info" name="submit">
-                                        </div>
-                                    </div>
-                                </form>
-}
-                                <div class="clearBoth"></div>
+                                }
                             </div>
-
+                            <div class="clearBoth"></div>
                         </div>
                     </div>
                 </div>
-
-                <!-- /.col-lg-12 -->
-
-                <footer>
-                   
-
-                </footer>
             </div>
-            <!-- /. PAGE INNER  -->
+
+            <!-- /.col-lg-12 -->
+
+            <footer></footer>
         </div>
-        <!-- /. PAGE WRAPPER  -->
+        <!-- /. PAGE INNER  -->
     </div>
+    <!-- /. PAGE WRAPPER  -->
     <!-- /. WRAPPER  -->
     <!-- JS Scripts-->
     <!-- jQuery Js -->
@@ -296,16 +293,14 @@
 
     @*<script src="~/Content/External/assets-2/js/easypiechart.js"></script>
         <script src="~/Content/External/assets-2/js/easypiechart-data.js"></script>*@
+
     <script src="~/Content/External/assets-2/js/Lightweight-Chart/jquery.chart.js"></script>
 
     <!-- Custom Js -->
     <script src="~/Content/External/assets-2/js/custom-scripts.js"></script>
 
+
 </body>
 
 </html>
 
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}

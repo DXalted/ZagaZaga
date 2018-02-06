@@ -1,9 +1,7 @@
-﻿@model ZagaZaga.Models.mass_email
-
-@{
-    ViewBag.Title = "Index";
+﻿@{
     Layout = null;
 }
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -49,6 +47,7 @@
         <li>
             <a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
         </li>
+
 
 
         <!--/. NAV TOP  -->
@@ -189,11 +188,11 @@
         <div id="page-wrapper">
             <div class="header">
                 <h1 class="page-header">
-                    Mass Email
+                    Company Check
                 </h1>
                 <ol class="breadcrumb">
                     <li><a href="#">Home</a></li>
-                    <li><a href="#"> Mass Email</a></li>
+                    <li><a href="#"> Bulk</a></li>
                     <li class="active">Data</li>
                 </ol>
 
@@ -203,76 +202,56 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="card">
-
                             <div class="card-content">
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true)
-                                <form class="col s12">
-                                    <div class="row">
-                                        <div class="input-field col s12">
-                                            @Html.EditorFor(model => model.product_name)
-                                            @Html.ValidationMessageFor(model => model.product_name)
-                                            <label for="pr_name">Product Name</label>
+                                    <form class="col s12">
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                               <select class="form-control">
+                                                   <option>Select Username</option>
+                                                   <option>kashaf27</option>
+                                               </select>
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                <select class="form-control">
+                                                    <option>Select Products</option>
+                                                    <option>RDP</option>
+                                                </select>
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                <input type="text" class="form-control" />
+                                                <label for="uname">Quantity</label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                <input type="text" class="form-control" />
+                                                <label for="uname">Price</label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                <input type="submit" class="btn btn-info" name="submit">
+                                            </div>
                                         </div>
 
-                                    </div>
-                                    <div class="row">
-                                        <div class="input-field col s12">
-                                            @Html.EditorFor(model => model.country)
-                                            @Html.ValidationMessageFor(model => model.country)
-                                            <label for="country">Country</label>
-                                        </div>
-                                    </div>
+                                    </form>
 
-                                    <div class="row">
-                                        <div class="input-field col s12">
-                                            @Html.EditorFor(model => model.details)
-                                            @Html.ValidationMessageFor(model => model.details)
-                                            <label for="details">Details</label>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="input-field col s12">
-                                            @Html.EditorFor(model => model.username)
-                                            @Html.ValidationMessageFor(model => model.username)
-                                            <label for="uname">User Name</label>
-                                        </div>
-                                    </div><div class="row">
-                                        <div class="input-field col s12">
-                                            @Html.EditorFor(model => model.pass)
-                                            @Html.ValidationMessageFor(model => model.pass)
-                                            <label for="pass">Password</label>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="input-field col s12">
-                                            @Html.EditorFor(model => model.price)
-                                            @Html.ValidationMessageFor(model => model.price)
-                                            <label for="price">Price</label>
-                                        </div>
-                                    </div><div class="row">
-                                        <div class="input-field col s12">
-                                            <input type="submit" class="btn btn-info" name="submit">
-                                        </div>
-                                    </div>
-                                </form>
-}
+                                
                                 <div class="clearBoth"></div>
                             </div>
-
                         </div>
                     </div>
                 </div>
 
                 <!-- /.col-lg-12 -->
 
-                <footer>
-                   
-
-                </footer>
+                <footer></footer>
             </div>
             <!-- /. PAGE INNER  -->
         </div>
@@ -296,16 +275,13 @@
 
     @*<script src="~/Content/External/assets-2/js/easypiechart.js"></script>
         <script src="~/Content/External/assets-2/js/easypiechart-data.js"></script>*@
+
     <script src="~/Content/External/assets-2/js/Lightweight-Chart/jquery.chart.js"></script>
 
     <!-- Custom Js -->
     <script src="~/Content/External/assets-2/js/custom-scripts.js"></script>
 
+
 </body>
 
 </html>
-
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}

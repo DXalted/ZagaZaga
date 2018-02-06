@@ -59,7 +59,57 @@ namespace ZagaZaga.Controllers
             return RedirectToAction("Index", "Admin_Dashboard");
         }
 
+        public ActionResult ssn()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public ActionResult ssn(ssn ss)
+        {
+            if (ModelState.IsValid)
+            {
+                db.ssn.Add(ss);
+                db.SaveChanges();
+                ViewBag.Message = "Submitted";
+
+            }
+
+            return RedirectToAction("Index", "Admin_Dashboard");
+        }
 
 
+        public ActionResult ep()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public ActionResult ep(ep epp)
+        {
+            if (ModelState.IsValid)
+            {
+                db.ep.Add(epp);
+                db.SaveChanges();
+                ViewBag.Message = "Submitted";
+
+            }
+
+            return RedirectToAction("Index", "Admin_Dashboard");
+        }
+
+        public ActionResult Bulk()
+        {
+            return View();
+        }
+
+        public ActionResult Orders()
+        {
+            return View();
+        }
     }
 }
