@@ -109,7 +109,7 @@ namespace ZagaZaga.Controllers
 
         public ActionResult Orders()
         {
-            return View();
+            return View(db.my_stuff.ToList());
         }
     }
 }

@@ -745,6 +745,8 @@
     <Content Include="Views\Admin_Dashboard\ep.cshtml" />
     <Content Include="Views\Admin_Dashboard\Bulk.cshtml" />
     <Content Include="Views\Admin_Dashboard\Orders.cshtml" />
+    <Content Include="Views\Tools\EP.cshtml" />
+    <Content Include="Views\Tools\SSn.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

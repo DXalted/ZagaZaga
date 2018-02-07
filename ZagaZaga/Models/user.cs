@@ -17,6 +17,8 @@ namespace ZagaZaga.Models
         public int id { get; set; }
         public string username { get; set; }
         public string userpass { get; set; }
+        public string confpass { get; set; }
+        
         public string email { get; set; }
         public string icq_yim { get; set; }
         public string type { get; set; }

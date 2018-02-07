@@ -1,8 +1,9 @@
-﻿@model IEnumerable<ZagaZaga.Models.google_voice>
+﻿@model IEnumerable<ZagaZaga.Models.ep>
 
 @{
-    ViewBag.Title = "Google_Voice";
+    ViewBag.Title = "EP";
 }
+
 <div class="slider">
     <div class="container">
         <div class="row">
@@ -31,7 +32,7 @@
                                     <span style="padding:5px; padding-right:10px"><i class="fa fa-envelope-o"></i></span>Letter
                                 </a>
                             </li>
-                            <li role="presentation" class="active">
+                            <li role="presentation" >
                                 <a href="/Tools/Google_Voice">
                                     <label style="background-color:red" class="lab">0</label>
                                     <span style="padding:5px; padding-right:10px"><i class="fa fa-skype"></i></span>Google Voice
@@ -79,7 +80,7 @@
                                     <span style="padding:5px; padding-right:10px"><i class="fa fa-check"></i></span>SSN/DOB
                                 </a>
                             </li>
-                            <li role="presentation">
+                            <li role="presentation" class="active">
                                 <a href="/Tools/EP">
                                     <label style="background-color:red" class="lab">0</label>
                                     <span style="padding:5px; padding-right:10px"><i class="fa fa-check"></i></span>E+P
@@ -100,7 +101,7 @@
 
             <div class="tab-content">
                 <div class="col-md-12 col-sm-12">
-                    <p style="font-size:18px; color:#00385c; font-weight:bold">Google Voice</p>
+                    <p style="font-size:18px; color:#00385c; font-weight:bold">E+P</p>
                     <table class="dTable">
                         <thead>
                             <tr>
@@ -108,10 +109,7 @@
                                     @Html.DisplayNameFor(model => model.product_name)
                                 </th>
                                 <th>
-                                    @Html.DisplayNameFor(model => model.state)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.phone)
+                                    @Html.DisplayNameFor(model => model.country)
                                 </th>
                                 <th>
                                     @Html.DisplayNameFor(model => model.details)
@@ -121,9 +119,6 @@
                                 </th>
                                 <th>
                                     @Html.DisplayNameFor(model => model.pass)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.recovery_email)
                                 </th>
                                 <th>
                                     @Html.DisplayNameFor(model => model.price)
@@ -140,10 +135,7 @@
                                         @Html.DisplayFor(modelItem => item.product_name)
                                     </td>
                                     <td>
-                                        @Html.DisplayFor(modelItem => item.state)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.phone)
+                                        @Html.DisplayFor(modelItem => item.country)
                                     </td>
                                     <td>
                                         @Html.DisplayFor(modelItem => item.details)
@@ -155,13 +147,10 @@
                                         @Html.DisplayFor(modelItem => item.pass)
                                     </td>
                                     <td>
-                                        @Html.DisplayFor(modelItem => item.recovery_email)
-                                    </td>
-                                    <td>
                                         @Html.DisplayFor(modelItem => item.price)
                                     </td>
                                     <td>
-                                        <a class="btn btn-success" data-product-id="@item.id" data-product-category="Google_Voice" onclick="buyItem(this);">BUY</a>
+                                        <a class="btn btn-success" data-product-id="@item.id" data-product-category="EP" onclick="buyItem(this);">BUY</a>
                                     </td>
                                 </tr>
                             }
@@ -177,3 +166,4 @@
         $(".dTable").DataTable();
     });
 </script>
+

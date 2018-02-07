@@ -29,6 +29,8 @@ namespace ZagaZaga.Controllers
         public ActionResult Letter_Writeups() { if (Session["user_id"] == null) return RedirectToAction("Index", "User_Login"); return View(db.letter_writeups.ToList()); }
         public ActionResult Leads() { if (Session["user_id"] == null) return RedirectToAction("Index", "User_Login"); return View(db.leads.ToList()); }
         public ActionResult Google_Voice() { if (Session["user_id"] == null) return RedirectToAction("Index", "User_Login"); return View(db.google_voice.ToList()); }
+        public ActionResult EP() { if (Session["user_id"] == null) return RedirectToAction("Index", "User_Login"); return View(db.ep.ToList()); }
+        public ActionResult SSn() { if (Session["user_id"] == null) return RedirectToAction("Index", "User_Login"); return View(db.ssn.ToList()); }
 
         [HttpPost]
         public string BuyItem(int ProductID, string ProductCategory)
@@ -48,6 +50,8 @@ namespace ZagaZaga.Controllers
             if (ProductCategory == "Letter_Writeups") { var ProductResult = db.letter_writeups.Where(x => x.id == ProductID).FirstOrDefault(); ProductPrice = Convert.ToDecimal(ProductResult.price); }
             if (ProductCategory == "Leads") { var ProductResult = db.leads.Where(x => x.id == ProductID).FirstOrDefault(); ProductPrice = Convert.ToDecimal(ProductResult.price); }
             if (ProductCategory == "Google_Voice") { var ProductResult = db.google_voice.Where(x => x.id == ProductID).FirstOrDefault(); ProductPrice = Convert.ToDecimal(ProductResult.price); }
+            if (ProductCategory == "EP") { var ProductResult = db.ep.Where(x => x.id == ProductID).FirstOrDefault(); ProductPrice = Convert.ToDecimal(ProductResult.price); }
+            if (ProductCategory == "SSN") { var ProductResult = db.ssn.Where(x => x.id == ProductID).FirstOrDefault(); ProductPrice = Convert.ToDecimal(ProductResult.price); }
 
             //if (ProductResult != null)
             {
