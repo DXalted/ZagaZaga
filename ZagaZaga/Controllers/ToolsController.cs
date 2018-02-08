@@ -35,6 +35,8 @@ namespace ZagaZaga.Controllers
         [HttpPost]
         public string BuyItem(int ProductID, string ProductCategory)
         {
+
+
             int UserID = Convert.ToInt32(Session["user_id"]);
             string sUserID = UserID.ToString();
             //var ProductResult = new object();
@@ -76,6 +78,8 @@ namespace ZagaZaga.Controllers
 
                     var amount2 = db.amount.Where(x => x.u_id == sUserID).FirstOrDefault();
                     if (amount2 != null) Session["user_amount"] = amount2.amount1;
+
+
 
                     return JsonConvert.SerializeObject(obj);
                 }

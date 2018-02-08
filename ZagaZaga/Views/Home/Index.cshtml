@@ -146,8 +146,8 @@
 
                                     </div>
                                     <div class="media-body">
-                                        <p style="font-size:18px; font-weight:600">25 USA RDP</p>
-                                        <p style="font-size:12px; font-weight:600; color:#a8a8a8">Added on 1 December 2017</p>
+                                        <p style="font-size:18px; font-weight:600">0 RDP</p>
+                                        @*<p style="font-size:12px; font-weight:600; color:#a8a8a8">Added on 1 December 2017</p>*@
                                     </div>
                                 </div>
                             </div>
@@ -160,8 +160,8 @@
 
                                     </div>
                                     <div class="media-body">
-                                        <p style="font-size:18px; font-weight:600">15 Neu</p>
-                                        <p style="font-size:12px; font-weight:600; color:#a8a8a8">Added on 11 December 2017</p>
+                                        <p style="font-size:18px; font-weight:600">0 Letter</p>
+                                        @*<p style="font-size:12px; font-weight:600; color:#a8a8a8">Added on 11 December 2017</p>*@
                                     </div>
                                 </div>
                             </div>
@@ -174,8 +174,8 @@
 
                                     </div>
                                     <div class="media-body">
-                                        <p style="font-size:18px; font-weight:600">20 Square up</p>
-                                        <p style="font-size:12px; font-weight:600; color:#a8a8a8">Added on 14 December 2017</p>
+                                        <p style="font-size:18px; font-weight:600">0 Bank Accounts</p>
+                                        @*<p style="font-size:12px; font-weight:600; color:#a8a8a8">Added on 14 December 2017</p>*@
                                     </div>
                                 </div>
                             </div>
@@ -188,8 +188,8 @@
 
                                     </div>
                                     <div class="media-body">
-                                        <p style="font-size:18px; font-weight:600">22 best buy</p>
-                                        <p style="font-size:12px; font-weight:600; color:#a8a8a8">Added on 14 December 2017</p>
+                                        <p style="font-size:18px; font-weight:600">0 Craiglist</p>
+                                        @*<p style="font-size:12px; font-weight:600; color:#a8a8a8">Added on 14 December 2017</p>*@
                                     </div>
                                 </div>
                             </div>
@@ -202,8 +202,8 @@
 
                                     </div>
                                     <div class="media-body">
-                                        <p style="font-size:18px; font-weight:600">25 USA RDP</p>
-                                        <p style="font-size:12px; font-weight:600; color:#a8a8a8">Added on 1 December 2017</p>
+                                        <p style="font-size:18px; font-weight:600">0 Paypal</p>
+                                        @*<p style="font-size:12px; font-weight:600; color:#a8a8a8">Added on 1 December 2017</p>*@
                                     </div>
                                 </div>
                             </div>
@@ -273,10 +273,10 @@
 
                     @if (Session["user_type"].ToString().ToUpper() != "VIP")
                     {
-                    <div class="box-1">
-                        <a href="#"><input type="button" onclick="showVIP(this)" style="width:150px; height:50px; background-color: #00385c; color: #fff; outline: none" value="APPLY NOW" /></a>
-                    </div>
-                      }
+                        <div class="box-1">
+                            <a href="#"><input type="button" onclick="showVIP(this)" style="width:150px; height:50px; background-color: #00385c; color: #fff; outline: none" value="APPLY NOW" /></a>
+                        </div>
+                    }
 
                 </div><!--close col-->
 
@@ -374,7 +374,7 @@
 
             <div style="padding: 10px" class="row">
                 <div class="col-md-12 col-sm-12">
-                    <button style="width: 170px; height: 40px; background-color: #fff; color: #000; border: 1px #d7d7d7 solid; outline: none" type="button">VIEW MORE</button>
+                    <a href="@Url.Action("View_More","Home")"><button style="width: 170px; height: 40px; background-color: #fff; color: #000; border: 1px #d7d7d7 solid; outline: none" type="button">VIEW MORE</button></a>
                 </div>
             </div>
         </div><!--close container-->
@@ -396,6 +396,69 @@
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
         </div>
+    </div>
+</div>
+<!-- Modal -->
+<div id="sugg" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <form action="/Home/Suggest" method="post">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Suggest Now</h4>
+                </div>
+                <div class="modal-body">
+                    <label>Select Option</label>
+                    <select class="form-control">
+                        <option>Suggest accounts or tools</option>
+                    </select>
+
+                    <label>What account or tool do you want us to sell on the site?</label>
+                    <input type="text" class="form-control" name="product" />
+
+                    <label>Specify the web address (if exists)</label>
+                    <input type="text" class="form-control" name="web" />
+
+                    <label>What info would you need ?</label>
+                    <input type="text" class="form-control" name="info" />
+
+                    <label>How much will you need monthly</label>
+                    <input type="text" class="form-control" name="amount" />
+
+                    <label>What price are you willing to pay ?</label>
+                    <input type="text" class="form-control" name="price" />
+                </div>
+                <div class="modal-footer">
+                    <a href="#"><input type="submit" style="width:100%; height:50px; background-color: #00385c; color: #fff; outline: none" value="Send" /></a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Modal -->
+<div id="cnt" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <form action="/Home/Contact" method="post">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Contact Us</h4>
+                </div>
+                <div class="modal-body">
+                    <label>Subject</label>
+                    <input type="text" class="form-control" name="subject" />
+
+                    <label>Message</label>
+                    <textarea rows="8" class="form-control" name="message"></textarea>
+                </div>
+                <div class="modal-footer">
+                    <a href="#"><input type="submit" style="width:100%; height:50px; background-color: #00385c; color: #fff; outline: none" value="Send" /></a>
+                </div>
+            </div>
+        </form>
     </div>
 </div>
 

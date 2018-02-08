@@ -22,7 +22,40 @@ namespace ZagaZaga.Controllers
             return View(ticket.ToList());
 
         }
+        public ActionResult Ticket(int id)
+        {
+            var all_ticket = db.ticket.Where(x => x.id == id).FirstOrDefault();
+            ViewBag.TicketTitle = all_ticket.title;
+            ViewBag.TicketDesc = all_ticket.desc;
+            ViewBag.TicketID = all_ticket.id;
 
+            return View(db.chat.Where(x => x.TicketID == id).ToList());
+
+        }
+        [HttpPost]
+        public ActionResult Ticket(int ticketID, string messageBox)
+        {
+            var User = db.chat.Where(x => x.TicketID == ticketID).FirstOrDefault();
+            
+            chat c = new chat();
+            c.AdminID = 9999;
+            c.UserID = User.UserID;
+            c.TicketID = ticketID;
+            c.MessageBody = messageBox;
+            c.SentBy = "A";
+            c.SentDate = DateTime.Now.ToString();
+
+            db.chat.Add(c);
+            db.SaveChanges();
+
+            var all_ticket = db.ticket.Where(x => x.id == ticketID).FirstOrDefault();
+            ViewBag.TicketTitle = all_ticket.title;
+            ViewBag.TicketDesc = all_ticket.desc;
+            ViewBag.TicketID = all_ticket.id;
+
+            return View(db.chat.Where(x => x.TicketID == ticketID).ToList());
+
+        }
 
         public ActionResult Data_Update(int id)
         {

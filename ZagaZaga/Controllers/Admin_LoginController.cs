@@ -30,8 +30,8 @@ namespace ZagaZaga.Controllers
             {
 
                 //u.LoginErrorMessage = "login";
-                Session["user_id"] = admin.id;
-                Session["user_name"] = admin.Username;
+                Session["admin_id"] = admin.id;
+                Session["admin_name"] = admin.Username;
 
 
                 return RedirectToAction("Index", "Admin_Dashboard");

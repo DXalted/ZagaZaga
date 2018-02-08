@@ -151,6 +151,9 @@
                             <li>
                                 <a href="@Url.Action("C_Check", "Admin_Dashboard")" class="waves-effect waves-dark"><i class="fa fa-edit"></i> Company Check</a>
                             </li>
+                            <li>
+                                <a href="@Url.Action("View_Chk_Req", "Admin_Dashboard")" class="waves-effect waves-dark"><i class="fa fa-edit"></i> View Check Request</a>
+                            </li>
 
                         </ul>
                     </li>
@@ -158,19 +161,25 @@
 
 
 
-
-
                     <li>
-                        <a href="@Url.Action("Index", "News")" class="waves-effect waves-dark"><i class="fa fa-edit"></i> News</a>
+                        <a href="#" class="waves-effect waves-dark"><i class="fa fa-edit"></i> News<span class="fa arrow"> </span></a>
+                        <ul class="nav nav-second-level">
+
+                            <li>
+                                <a href="@Url.Action("Index", "News")" class="waves-effect waves-dark"><i class="fa fa-edit"></i> Add News</a>
+                            </li>
+
+                            <li>
+                                <a href="@Url.Action("View_News", "News")" class="waves-effect waves-dark"><i class="fa fa-edit"></i> View News</a>
+                            </li>
+                        </ul>
                     </li>
 
-
-
                     <li>
-                        <a href="#" class="waves-effect waves-dark"><i class="fa fa-edit"></i> View Suggestions</a>
+                        <a href="@Url.Action("Suggest", "Admin_Dashboard")" class="waves-effect waves-dark"><i class="fa fa-edit"></i> View Suggestions</a>
                     </li>
                     <li>
-                        <a href="#" class="waves-effect waves-dark"><i class="fa fa-edit"></i> View Queries</a>
+                        <a href="@Url.Action("Contact", "Admin_Dashboard")" class="waves-effect waves-dark"><i class="fa fa-edit"></i> View Queries</a>
                     </li>
                     <li>
                         <a href="@Url.Action("Index", "Tickets")" class="waves-effect waves-dark"><i class="fa fa-edit"></i> View Tickets</a>
@@ -180,6 +189,12 @@
                     </li>
                     <li>
                         <a href="@Url.Action("Orders", "Admin_Dashboard")" class="waves-effect waves-dark"><i class="fa fa-edit"></i> Orders</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Users", "Admin_Dashboard")" class="waves-effect waves-dark"><i class="fa fa-edit"></i> Users</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Add_Money", "Admin_Dashboard")" class="waves-effect waves-dark"><i class="fa fa-edit"></i> Add Money</a>
                     </li>
 
                 </ul>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -15,6 +16,7 @@ namespace ZagaZaga.Controllers
 
         public ActionResult Index()
         {
+            if (Session["admin_id"] == null) return RedirectToAction("Index", "Admin_Login");
             return View();
         }
 
@@ -109,7 +111,39 @@ namespace ZagaZaga.Controllers
 
         public ActionResult Orders()
         {
-            return View(db.my_stuff.ToList());
+            var ID = new SqlParameter("@UserID", Convert.ToInt32(Session["user_id"]));
+            return View(db.Database.SqlQuery<my_buy_stuff>("getMyStuff @UserID", ID).ToList());
+        }
+        public ActionResult Users()
+        {
+            //var users = db.user.Where(x => x.id != 000);
+            //ViewBag.users = users.ToList();
+            return View(db.user.ToList());
+        }
+
+        //public ActionResult Orders()
+        //{
+        //    return View(db.my_stuff.ToList());
+        //}
+        public ActionResult Suggest()
+        {
+
+
+            return View(db.suggest.ToList());
+        }
+
+        public ActionResult Contact()
+        {
+            return View(db.contact.ToList());
+        }
+        public ActionResult View_Chk_Req()
+        {
+            return View(db.check_req.ToList());
+        }
+
+        public ActionResult Add_Money()
+        {
+            return View();
         }
     }
 }

@@ -32,7 +32,10 @@ namespace ZagaZaga.Controllers
 
             return RedirectToAction("Index", "Admin_Dashboard");
         }
-
+        public ActionResult View_News()
+        {
+            return View(db.news.ToList());
+        }
 
         
 

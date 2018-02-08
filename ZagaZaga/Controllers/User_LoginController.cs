@@ -35,7 +35,7 @@ namespace ZagaZaga.Controllers
         {
             if (!Validate())
             {
-                return View();
+                //return View();
             }
 
                 var userdetails = db.user.Where(x => x.username == u.username && x.userpass == u.userpass).FirstOrDefault();
@@ -54,6 +54,7 @@ namespace ZagaZaga.Controllers
                     Session["user_id"] = userdetails.id;
                     Session["user_name"] = userdetails.username;
                     Session["user_type"] = userdetails.type;
+                    Session["user_email"] = userdetails.email;
 
                     ViewBag.Message = "Login Successfully";
                     return RedirectToAction("Index", "Home");

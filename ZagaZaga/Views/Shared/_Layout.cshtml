@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="~/Content/External/assets-1/css/font-awesome/css/font-awesome.min.css">
 
     <script src="~/Content/External/assets-1/js/jquery-3.2.1.js"></script>
-
+    <script src="~/Content/External/assets-1/js/bootstrap.js"></script>
 
 
 
@@ -62,15 +62,15 @@
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">@Session["user_name"] <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="#">Profile</a></li>
-                                    <li><a href="#">My Stuff</a></li>
-                                    <li><a href="#">My Paypal</a></li>
+                                    <li><a href="/User_Profile">Profile</a></li>
+                                    <li><a href="@Url.Action("mystuff","Home")">My Stuff</a></li>
+                                    @*<li><a href="#">My Paypal</a></li>*@
                                     @if (Session["user_type"].ToString().ToUpper() == "VIP")
                                     {
                                         <li><a href="#">My Bulk</a></li>
                                     }
                                     <li class="divider"></li>
-                                    <li><a href="#">Logout</a></li>
+                                    <li><a href="/Home/Logout">Logout</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -86,7 +86,7 @@
                 <ul class="nav navbar-nav">
                     <li><a href="@Url.Action("Index","Home")">Home</a></li>
                     <li><a href="@Url.Action("Accounts","Home")">Accounts</a></li>
-                    <li><a href="@Url.Action("RDP","Tools")" class="active-menu">Tools</a></li>
+                    <li><a href="@Url.Action("RDP","Tools")">Tools</a></li>
                     <li><a data-toggle="modal" data-target="#myModal" href="#">Send Check Next Day Delivery</a></li>
                     <li><a href="@Url.Action("Index","Format")">Format & Write UPS</a></li>
                     <li><a href="@Url.Action("Transfers","Home")">Transfers</a></li>
@@ -162,7 +162,7 @@
                     <p>You Have Successfully Buy This Item.</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-default" onclick="location.reload();">Close</button>
                 </div>
             </div>
         </div>
@@ -180,14 +180,14 @@
                     <p>Oops! It's look like you have insufficiant balance.</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-default" onclick="location.reload();">Close</button>
                 </div>
             </div>
         </div>
     </div>
 
 
-    <script src="~/Content/External/assets-1/js/bootstrap.js"></script>
+   
     <script src="~/Content/External/assets-1/js/npm.js"></script>
     <script src="~/Content/External/assets-1/js/slick.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.16/datatables.min.js"></script>
@@ -206,6 +206,8 @@
             } else {
                 $("#SuccessModal").modal();
             }
+
+            
             console.log(data);
         }
 

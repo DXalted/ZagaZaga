@@ -1,0 +1,62 @@
+﻿@*@model IEnumerable<ZagaZaga.Models.my_stuff>*@
+@model IEnumerable<ZagaZaga.Models.my_buy_stuff>
+
+@{
+    ViewBag.Title = "mystuff";
+}
+<div class="slider">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <h1 class="b_icon"><i class="fa fa-cogs" aria-hidden="true"></i></h1>
+            </div><!--close col-->
+        </div><!--close row-->
+
+
+
+    </div><!--close container-->
+</div><!--close slider-->
+
+
+<div class="section">
+    <div class="sec-2">
+        <div class="container">
+
+            <div class="tab-content">
+                <div class="col-md-12 col-sm-12">
+                    <p style="font-size:18px; color:#00385c; font-weight:bold">My Stuff</p>
+                    <table class="dTable">
+                        <thead>
+                            <tr>
+                                <th>User Name</th>
+                                <th>Product Name</th>
+                                <th>Product Type</th>
+                                <th>Buy Date</th>
+                            </tr>
+
+                        </thead>
+                        <tbody>
+
+                           @foreach (var item in Model)
+                           {
+                            <tr class="odd gradeX">
+                                <td>@item.UserName</td>
+                                <td>@item.ProductName</td>
+                                <td>@item.ProductType</td>
+                                <td>@item.BuyDate</td>
+
+                            </tr>
+                           }
+
+                        <tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function () {
+        $(".dTable").DataTable();
+    });
+</script>

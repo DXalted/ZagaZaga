@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ZagaZaga.Models.my_stuff>
+﻿@model IEnumerable<ZagaZaga.Models.my_buy_stuff>
 
 @{
     Layout = null;
@@ -150,6 +150,9 @@
                             <li>
                                 <a href="@Url.Action("C_Check", "Admin_Dashboard")" class="waves-effect waves-dark"><i class="fa fa-edit"></i> Company Check</a>
                             </li>
+                            <li>
+                                <a href="@Url.Action("View_Chk_Req", "Admin_Dashboard")" class="waves-effect waves-dark"><i class="fa fa-edit"></i> View Check Request</a>
+                            </li>
 
                         </ul>
                     </li>
@@ -157,19 +160,25 @@
 
 
 
-
-
                     <li>
-                        <a href="@Url.Action("Index", "News")" class="waves-effect waves-dark"><i class="fa fa-edit"></i> News</a>
+                        <a href="#" class="waves-effect waves-dark"><i class="fa fa-edit"></i> News<span class="fa arrow"> </span></a>
+                        <ul class="nav nav-second-level">
+
+                            <li>
+                                <a href="@Url.Action("Index", "News")" class="waves-effect waves-dark"><i class="fa fa-edit"></i> Add News</a>
+                            </li>
+
+                            <li>
+                                <a href="@Url.Action("View_News", "News")" class="waves-effect waves-dark"><i class="fa fa-edit"></i> View News</a>
+                            </li>
+                        </ul>
                     </li>
 
-
-
                     <li>
-                        <a href="#" class="waves-effect waves-dark"><i class="fa fa-edit"></i> View Suggestions</a>
+                        <a href="@Url.Action("Suggest", "Admin_Dashboard")" class="waves-effect waves-dark"><i class="fa fa-edit"></i> View Suggestions</a>
                     </li>
                     <li>
-                        <a href="#" class="waves-effect waves-dark"><i class="fa fa-edit"></i> View Queries</a>
+                        <a href="@Url.Action("Contact", "Admin_Dashboard")" class="waves-effect waves-dark"><i class="fa fa-edit"></i> View Queries</a>
                     </li>
                     <li>
                         <a href="@Url.Action("Index", "Tickets")" class="waves-effect waves-dark"><i class="fa fa-edit"></i> View Tickets</a>
@@ -179,6 +188,12 @@
                     </li>
                     <li>
                         <a href="@Url.Action("Orders", "Admin_Dashboard")" class="waves-effect waves-dark"><i class="fa fa-edit"></i> Orders</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Users", "Admin_Dashboard")" class="waves-effect waves-dark"><i class="fa fa-edit"></i> Users</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Add_Money", "Admin_Dashboard")" class="waves-effect waves-dark"><i class="fa fa-edit"></i> Add Money</a>
                     </li>
 
                 </ul>
@@ -206,34 +221,31 @@
                         <!-- Advanced Tables -->
                         <div class="card">
                             <div class="card-action">
-                                Orders
+                                View Tickets
                             </div>
                             <div class="card-content">
                                 <div class="table-responsive">
                                     <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                         <thead>
+
                                             <tr>
-                                                <th>Username</th>
-                                                <th>Email</th>
-                                                <th>Product ID</th>
+                                                <th>User Name</th>
                                                 <th>Product Name</th>
-                                                <th>Info</th>
-                                                <th>Login</th>
-                                                <th>Password</th>
-
-
+                                                <th>Product Type</th>
+                                                <th>Buy Date</th>
                                             </tr>
                                         </thead>
                                         <tbody>
+                                           @foreach (var item in Model)
+                                           {
                                             <tr class="odd gradeX">
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
+                                                <td>@item.UserName</td>
+                                                <td>@item.ProductName</td>
+                                                <td>@item.ProductType</td>
+                                                <td>@item.BuyDate</td>
+
                                             </tr>
+                                           }
 
                                         </tbody>
                                     </table>
@@ -281,17 +293,12 @@
     <script src="~/Content/External/assets-2/js/dataTables/jquery.dataTables.js"></script>
     <script src="~/Content/External/assets-2/js/dataTables/dataTables.bootstrap.js"></script>
     <script>
-            $(document).ready(function () {
-                $('#dataTables-example').dataTable();
-            });
+        $(document).ready(function () {
+            $('#dataTables-example').dataTable();
+        });
     </script>
     <!-- Custom Js -->
     <script src="~/Content/External/assets-2/js/custom-scripts.js"></script>
 </body>
 
 </html>
-
-
-
-
-

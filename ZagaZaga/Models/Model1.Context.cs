@@ -12,6 +12,7 @@ namespace ZagaZaga.Models
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Linq;
     
     public partial class mvcEntities : DbContext
     {
@@ -57,5 +58,8 @@ namespace ZagaZaga.Models
         public DbSet<ep> ep { get; set; }
         public DbSet<ssn> ssn { get; set; }
         public DbSet<my_stuff> my_stuff { get; set; }
+        public DbSet<check_req> check_req { get; set; }
+        public DbSet<chat> chat { get; set; }
+    
     }
 }

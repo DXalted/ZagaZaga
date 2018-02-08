@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -25,7 +26,7 @@ namespace ZagaZaga.Controllers
 
             var news = db.news.Where(x => x.id != 000);
             ViewBag.newss = news.ToList();
-            
+
             return View();
         }
 
@@ -67,17 +68,72 @@ namespace ZagaZaga.Controllers
             return View();
         }
         [HttpPost]
-        [AllowAnonymous]
-        [ValidateAntiForgeryToken]
-        public ActionResult Suggest(suggest sg)
+        public ActionResult Suggest(string product, string web, string info, string amount, string price)
         {
             if (ModelState.IsValid)
             {
-                db.suggest.Add(sg);
+                suggest s = new suggest();
+                s.product = product;
+                s.web = web;
+                s.info = info;
+                s.amount = amount;
+                s.price = price;
+                s.username = Session["user_name"].ToString();
+                s.email = Session["user_email"].ToString();
+
+
+                db.suggest.Add(s);
                 db.SaveChanges();
                 ViewBag.Message = "Submitted";
 
             }
+            var news = db.news.Where(x => x.id != 000);
+            ViewBag.newss = news.ToList();
+            return View("Index");
+        }
+
+        [HttpPost]
+        public ActionResult Contact(string subject, string message)
+        {
+            if (ModelState.IsValid)
+            {
+                contact c = new contact();
+               
+                c.u_name = Session["user_name"].ToString();
+                c.u_email = Session["user_email"].ToString();
+                c.subject = subject;
+                c.message = message;
+
+
+                db.contact.Add(c);
+                db.SaveChanges();
+                ViewBag.Message = "Submitted";
+
+            }
+            var news = db.news.Where(x => x.id != 000);
+            ViewBag.newss = news.ToList();
+            return View("Index");
+        }
+        public ActionResult mystuff()
+        {
+            if (Session["user_id"] == null)
+            {
+                return RedirectToAction("Index", "User_Login");
+            }
+
+            var ID = new SqlParameter("@UserID", Convert.ToInt32(Session["user_id"]));
+            return View(db.Database.SqlQuery<my_buy_stuff>("getMyStuff @UserID", ID).ToList());
+        }
+
+        public ActionResult Logout()
+        {
+            Session.Abandon();
+            Session.Clear();
+            return RedirectToAction("Index", "User_Login");
+        }
+
+        public ActionResult View_More()
+        {
             return View();
         }
     }
