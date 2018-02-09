@@ -218,12 +218,16 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-content">
-                                <form class="col s12">
+                                <form class="col s12" method="post">
                                     <div class="row">
                                         <div class="input-field col s12">
                                             <select class="form-control">
-                                                <option>Select Username</option>
-                                                <option>kashaf27</option>
+                                            
+                                                    <option>Select Username</option>
+                                                @foreach (var item in ViewBag.users) {
+
+                                                <option value="@item.id">@item.username</option>
+    }
                                             </select>
 
                                         </div>

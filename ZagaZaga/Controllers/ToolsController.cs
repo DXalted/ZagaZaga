@@ -20,17 +20,61 @@ namespace ZagaZaga.Controllers
             return RedirectToAction("Index", "RDP");
         }
 
-        public ActionResult Check_Sample() { if (Session["user_id"] == null) return RedirectToAction("Index", "User_Login"); return View(db.check_sample.ToList()); }
-        public ActionResult RDP() { if (Session["user_id"] == null) return RedirectToAction("Index", "User_Login"); return View(db.rdp.ToList()); }
-        public ActionResult Send_Check() { if (Session["user_id"] == null) return RedirectToAction("Index", "User_Login"); return View(db.send_check.ToList()); }
-        public ActionResult Phone_Number() { if (Session["user_id"] == null) return RedirectToAction("Index", "User_Login"); return View(db.phone_number.ToList()); }
-        public ActionResult Mass_Text() { if (Session["user_id"] == null) return RedirectToAction("Index", "User_Login"); return View(db.mass_text.ToList()); }
-        public ActionResult Mass_Email() { if (Session["user_id"] == null) return RedirectToAction("Index", "User_Login"); return View(db.mass_email.ToList()); }
-        public ActionResult Letter_Writeups() { if (Session["user_id"] == null) return RedirectToAction("Index", "User_Login"); return View(db.letter_writeups.ToList()); }
-        public ActionResult Leads() { if (Session["user_id"] == null) return RedirectToAction("Index", "User_Login"); return View(db.leads.ToList()); }
-        public ActionResult Google_Voice() { if (Session["user_id"] == null) return RedirectToAction("Index", "User_Login"); return View(db.google_voice.ToList()); }
-        public ActionResult EP() { if (Session["user_id"] == null) return RedirectToAction("Index", "User_Login"); return View(db.ep.ToList()); }
-        public ActionResult SSn() { if (Session["user_id"] == null) return RedirectToAction("Index", "User_Login"); return View(db.ssn.ToList()); }
+        public ActionResult Check_Sample()
+        {
+            if (Session["user_id"] == null) return RedirectToAction("Index", "User_Login");
+            return View(db.check_sample.Where(c => !db.my_stuff.Select(b => b.ProductID).Contains(c.id)).ToList());
+        }
+        public ActionResult RDP()
+        {
+            if (Session["user_id"] == null) return RedirectToAction("Index", "User_Login");
+            return View(db.rdp.Where(c => !db.my_stuff.Select(b => b.ProductID).Contains(c.id)).ToList());
+        }
+        public ActionResult Send_Check()
+        {
+            if (Session["user_id"] == null) return RedirectToAction("Index", "User_Login");
+            return View(db.send_check.Where(c => !db.my_stuff.Select(b => b.ProductID).Contains(c.id)).ToList());
+        }
+        public ActionResult Phone_Number()
+        {
+            if (Session["user_id"] == null) return RedirectToAction("Index", "User_Login");
+            return View(db.phone_number.Where(c => !db.my_stuff.Select(b => b.ProductID).Contains(c.id)).ToList());
+        }
+        public ActionResult Mass_Text()
+        {
+            if (Session["user_id"] == null) return RedirectToAction("Index", "User_Login");
+            return View(db.mass_text.Where(c => !db.my_stuff.Select(b => b.ProductID).Contains(c.id)).ToList());
+        }
+        public ActionResult Mass_Email()
+        {
+            if (Session["user_id"] == null) return RedirectToAction("Index", "User_Login");
+            return View(db.mass_email.Where(c => !db.my_stuff.Select(b => b.ProductID).Contains(c.id)).ToList());
+        }
+        public ActionResult Letter_Writeups()
+        {
+            if (Session["user_id"] == null) return RedirectToAction("Index", "User_Login");
+            return View(db.letter_writeups.Where(c => !db.my_stuff.Select(b => b.ProductID).Contains(c.id)).ToList());
+        }
+        public ActionResult Leads()
+        {
+            if (Session["user_id"] == null) return RedirectToAction("Index", "User_Login");
+            return View(db.leads.Where(c => !db.my_stuff.Select(b => b.ProductID).Contains(c.id)).ToList());
+        }
+        public ActionResult Google_Voice()
+        {
+            if (Session["user_id"] == null) return RedirectToAction("Index", "User_Login");
+            return View(db.google_voice.Where(c => !db.my_stuff.Select(b => b.ProductID).Contains(c.id)).ToList());
+        }
+        public ActionResult EP()
+        {
+            if (Session["user_id"] == null) return RedirectToAction("Index", "User_Login");
+            return View(db.ep.Where(c => !db.my_stuff.Select(b => b.ProductID).Contains(c.id)).ToList());
+        }
+        public ActionResult SSn()
+        {
+            if (Session["user_id"] == null) return RedirectToAction("Index", "User_Login");
+            return View(db.ssn.Where(c => !db.my_stuff.Select(b => b.ProductID).Contains(c.id)).ToList());
+        }
 
         [HttpPost]
         public string BuyItem(int ProductID, string ProductCategory)

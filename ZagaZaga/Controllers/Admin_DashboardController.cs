@@ -143,6 +143,25 @@ namespace ZagaZaga.Controllers
 
         public ActionResult Add_Money()
         {
+
+            ViewBag.users = db.user.ToList();
+
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Add_Money(string UserID, string Amount)
+        {
+            var result = db.amount.Where(x => x.u_id == UserID).FirstOrDefault();
+            if (result != null)
+            {
+
+            }
+            else
+            {
+
+            }
+            
+
             return View();
         }
     }
